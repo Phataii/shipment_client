@@ -20,7 +20,7 @@ function Register() {
         email,
         password,
         passwordVerify,
-        role
+        role,
       };
 
       await requestClient.post("/auth", registerData);
@@ -35,7 +35,7 @@ function Register() {
   return (
     <div className="grid md:grid-cols-4">
       <img
-        src={require("../../images/mobile.png").default}
+        src={require("../../images/mb.png").default}
         alt="Reg"
         className="mt-5 md:hidden"
       />
@@ -94,7 +94,6 @@ function Register() {
         <h2 className="uppercase text-2xl text-center font-bold">
           Prime
           <span className="border-b-8 border-blue-500">Investors</span>
-          
         </h2>
       </section>
     </div>

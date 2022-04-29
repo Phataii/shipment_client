@@ -4,6 +4,8 @@ import { useState } from "react";
 import Footer from "../layout/Footer";
 import Navbar from "../layout/Navbar";
 import "tw-elements";
+import { FaGooglePlay } from "react-icons/fa";
+import { GrAppleAppStore } from "react-icons/gr";
 export default function Index() {
   const [price, setPrice] = useState("");
   const getApi = () => {
@@ -80,7 +82,8 @@ export default function Index() {
                 class="duration-700 ease-in-out absolute inset-0 transition-all transform -translate-x-full z-10"
                 data-carousel-item=""
               >
-                <img src={require('../../images/bg1.png').default}
+                <img
+                  src={require("../../images/bg1.png").default}
                   class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
                   alt="..."
                 />
@@ -90,19 +93,29 @@ export default function Index() {
                 class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20"
                 data-carousel-item="active"
               >
-                 <img src={require('../../images/bg2.jpg').default}
+                <img
+                  src={require("../../images/bg2.jpg").default}
                   class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
                   alt="Background"
                 />
               </div>
-
-              
             </div>
             <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-         </div>
-           
+              <button
+                type="button"
+                class="w-3 h-3 rounded-full"
+                aria-current="true"
+                aria-label="Slide 1"
+                data-carousel-slide-to="0"
+              ></button>
+              <button
+                type="button"
+                class="w-3 h-3 rounded-full"
+                aria-current="false"
+                aria-label="Slide 2"
+                data-carousel-slide-to="1"
+              ></button>
+            </div>
           </div>
         </div>
       </section>
@@ -309,20 +322,12 @@ export default function Index() {
                 </h3>
                 <div className="grid grid-cols-2 mt-10">
                   <div className="flex justify-left">
-                    <img
-                      src={require("../../images/playstore.png").default}
-                      alt="BTC"
-                      className="w-8 -mt-3"
-                    />
+                    <FaGooglePlay className="mt-1" />
                     <p className="text-white ml-4">Google play</p>
                   </div>
                   <div className="flex justify-left">
-                    <img
-                      src={require("../../images/apple.png").default}
-                      alt="appstore"
-                      className="w-20"
-                    />
-                    <p className="text-white">Apple Store</p>
+                    <GrAppleAppStore className="mt-1" />
+                    <p className="text-white ml-3">Apple Store</p>
                   </div>
                 </div>
               </div>
