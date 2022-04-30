@@ -64,7 +64,7 @@ function Navbar() {
                 {!loggedIn && (
                   <>
                     <Link to="/login">
-                      <span className="ml-5 p-3 rounded-md text-gray-200 font-bold text-sm ring-2 ring-blue-500/50  hover:bg-white hover:text-blue-500 duration-700">
+                      <span className="md:ml-5 p-3 rounded-md text-gray-200 font-bold text-sm md:ring-2 ring-blue-500/50  hover:bg-white hover:text-blue-500 duration-700">
                         Login / Signup
                       </span>
                     </Link>
