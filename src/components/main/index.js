@@ -6,7 +6,6 @@ import Navbar from "../layout/Navbar";
 import "tw-elements";
 import { FaGooglePlay } from "react-icons/fa";
 import { GrAppleAppStore } from "react-icons/gr";
-import { GrSecure } from "react-icons/gr";
 
 export default function Index() {
   const [price, setPrice] = useState("");
@@ -148,7 +147,6 @@ export default function Index() {
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              {/* <GrSecure className="text-blue-600 text-5xl" /> */}
               <p className="font-bold text-xl">
                 Easy & Secured
                 <br /> transactions
