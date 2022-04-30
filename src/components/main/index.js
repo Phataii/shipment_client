@@ -126,7 +126,7 @@ export default function Index() {
       </section>
       {/* What We Do */}
       <section
-        className="bg-gray-100 md:w-3/5 text-center md:h-3/5 -mt-20 md:ml-80 shadow-2xl rounded-xl p-10"
+        className="bg-gray-100 md:w-3/5 text-center md:h-3/5 -mt-32 md:-mt-20 md:ml-80 shadow-2xl rounded-xl p-10"
         id="service"
       >
         <h3 className="font-bold text-gray-500 text-3xl justify-center mt-10 relative mb-10">
