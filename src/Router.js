@@ -9,6 +9,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Transactions from "./components/pages/Transactions.jsx";
 import History from "./components/pages/history";
+import Faqs from "./components/pages/faqs";
 import TransactionsForm from "./components/pages/withdraw";
 import Messages from "./components/pages/messages";
 import Deposit from "./components/pages/deposit";
@@ -32,6 +33,9 @@ function Router() {
         </Route>
         <Route exact path="/chart">
           <Chart />
+        </Route>
+        <Route exact path="/faqs">
+          <Faqs />
         </Route>
         {!loggedIn && (
           <>
