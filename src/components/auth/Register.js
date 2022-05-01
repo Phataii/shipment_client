@@ -93,12 +93,8 @@ function Register() {
           <img
             src={require("../../images/reg.png").default}
             alt="Reg"
-            className="md:block mt-10 h-96 ml-9"
+            className="hidden md:block w-96 mt-24"
           />
-          <h2 className="uppercase text-2xl text-center font-bold">
-            Prime
-            <span className="border-b-8 border-blue-500">Investors</span>
-          </h2>
         </section>
       </div>
       <Footer />

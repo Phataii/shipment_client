@@ -33,7 +33,7 @@ function Login() {
   return (
     <div>
       <Navbar />
-      <div className="grid md:grid-cols-5">
+      <div className="grid md:grid-cols-5 mb-14">
         <img
           src={require("../../images/mb.png").default}
           alt="BTC"
@@ -82,9 +82,6 @@ function Login() {
             alt="BTC"
             className="hidden md:block w-96 mt-24"
           />
-          <h2 className="uppercase text-5xl font-bold hidden md:block">
-            Prime Investors
-          </h2>
         </section>
       </div>
       <Footer />
