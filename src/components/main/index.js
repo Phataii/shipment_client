@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { useState } from "react";
-import Footer from "../layout/Footer";
+
 import Navbar from "../layout/Navbar";
-import "tw-elements";
+import Footer from "../layout/Footer";
+
+import { BiBitcoin } from "react-icons/bi";
+import { FaEthereum } from "react-icons/fa";
+import { RiTeamFill } from "react-icons/ri";
 import { FaGooglePlay } from "react-icons/fa";
 import { GrAppleAppStore } from "react-icons/gr";
+import { BsBarChartSteps } from "react-icons/bs";
 
-export default function Index() {
+export default function Landing() {
   const [price, setPrice] = useState("");
   const getApi = () => {
     axios
@@ -25,377 +29,363 @@ export default function Index() {
       });
   };
   return (
-    <div onLoad={getApi}>
-      <Navbar />
-      <section className="h-screen bg-blue-600 md:grid md:grid-cols-3">
-        <div className="md:ml-16 p-2 col-span-1">
-          <div className="mt-10 md:mt-44">
-            <p className="font-bold text-3xl text-gray-300">
-              Trade, Swap and Invest
-              <br />
-              Cryptocurrency with ease
-            </p>
-
-            <p className="text-gray-200 text-xl py-3">
-              Smooth Payout | Safe Trade | Affordable Rate
-            </p>
+    <>
+      <Navbar transparent />
+      <main onLoad={getApi}>
+        <div
+          className="relative pt-16 pb-32 flex content-center items-center justify-center"
+          style={{
+            minHeight: "75vh",
+          }}
+        >
+          <div
+            className="absolute top-0 w-full h-full bg-center bg-cover"
+            style={{
+              backgroundImage:
+                "url('https://cdn.pixabay.com/photo/2021/09/04/03/00/stock-6596910_960_720.jpg')",
+            }}
+          >
+            <span
+              id="blackOverlay"
+              className="w-full h-full absolute opacity-75 bg-black"
+            ></span>
           </div>
-          <div className="grid grid-cols-3 p-2 w-full bg-gray-300 rounded">
-            <span className="text-xs font-bold col-span-1 flex text-center">
-              <img
-                src={require("../../images/usdt.png").default}
-                alt="USDT"
-                className="h-10 w-10 mr-1"
-              />
-              <span>
-                <p className="text-gray-500 text-xs">USDT/USD</p>
-                {price && <p>$ {price.tether.usd}</p>}
-              </span>
-            </span>
-            <span className="text-xs font-bold col-span-1 flex text-center">
-              <img
-                src={require("../../images/eth.png").default}
-                alt="ETH"
-                className="h-10 w-10"
-              />
-              <span>
-                <p className="text-gray-500 text-xs">ETH/USD</p>
-                {price && <p>$ {price.ethereum.usd}</p>}
-              </span>
-            </span>
-            <span className="text-xs font-bold col-span-1 flex text-center">
-              <img
-                src={require("../../images/btc.png").default}
-                alt="BTC"
-                className="h-10 w-10"
-              />
-              <span>
-                <p className="text-gray-500 text-xs">BTC/USD</p>
-                {price && <p>$ {price.bitcoin.usd}</p>}
-              </span>
-            </span>
-          </div>
-        </div>
-        <div className="md:mt-32 md:mx-10 mx-2 col-span-2">
-          <div id="controls-carousel" class="relative" data-carousel="static">
-            <div class="overflow-hidden relative h-48 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
-              <div
-                class="duration-700 ease-in-out absolute inset-0 transition-all transform -translate-x-full z-10"
-                data-carousel-item=""
-              >
-                <img
-                  src={require("../../images/bg1.png").default}
-                  class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
-                  alt="..."
-                />
-              </div>
-
-              <div
-                class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20"
-                data-carousel-item="active"
-              >
-                <img
-                  src={require("../../images/bg2.jpg").default}
-                  class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
-                  alt="Background"
-                />
+          <div className="container relative mx-auto">
+            <div className="items-center flex flex-wrap">
+              <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+                <div className="pr-12">
+                  <h1 className="text-white font-semibold text-5xl">
+                    Trade, Swap and Invest Cryptocurrency with ease
+                  </h1>
+                  <p className="mt-4 text-lg text-gray-300">
+                    Smooth Payout | Safe Trade | Affordable Rate
+                  </p>
+                  <a href="/register">
+                    <button className="text-gray-300 text-3xl border-2 p-2 mt-3 hover:bg-gray-900 hover:text-white duration-700">
+                      START TRADING
+                    </button>
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-              <button
-                type="button"
-                class="w-3 h-3 rounded-full"
-                aria-current="true"
-                aria-label="Slide 1"
-                data-carousel-slide-to="0"
-              ></button>
-              <button
-                type="button"
-                class="w-3 h-3 rounded-full"
-                aria-current="false"
-                aria-label="Slide 2"
-                data-carousel-slide-to="1"
-              ></button>
-            </div>
           </div>
 
-          <button className="border-2 text-2xl text-white md:w-96 p-3 mt-5 md:ml-40 hover:bg-white hover:text-blue-500  duration-700">
-            Get started!
-          </button>
-        </div>
-      </section>
-      {/* What We Do */}
-      <section
-        className="bg-gray-100 md:w-3/5 text-center md:h-3/5 -mt-32 md:-mt-20 md:ml-80 shadow-2xl rounded-xl p-10"
-        id="service"
-      >
-        <h3 className="font-bold text-gray-500 text-3xl justify-center mt-10 relative mb-10">
-          WHAT WE DO
-        </h3>
-        <div className="-mt-5 mb-5">
-          <div className="grid grid-cols-2">
-            <span className="">
-              <svg
-                class="w-24 h-24 md:ml-32  text-blue-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-              <p className="font-bold text-xl">
-                Easy & Secured
-                <br /> transactions
-              </p>
-            </span>
-            <span>
-              <svg
-                class="w-24 h-24 md:ml-32 text-blue-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
-                ></path>
-              </svg>
-              <p className="font-bold text-xl">
-                Fast Payouts on
-                <br /> all transactions
-              </p>
-            </span>
-          </div>
-          <div className="grid grid-cols-2">
-            <span className="">
-              <svg
-                class="w-24 h-24 md:ml-32 text-blue-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                ></path>
-              </svg>
-
-              <p className="font-bold text-xl">
-                Up-to-date &<br />
-                affordable rate
-              </p>
-            </span>
-            <span>
-              <svg
-                class="w-24 h-24 md:ml-32 text-blue-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M7.707 10.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V6h5a2 2 0 012 2v7a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h5v5.586l-1.293-1.293zM9 4a1 1 0 012 0v2H9V4z"></path>
-              </svg>
-              <p className="font-bold text-xl">
-                We Provide Multiple
-                <br />
-                Crypto-Wallet
-              </p>
-            </span>
+          <div
+            className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
+            style={{ height: "70px" }}
+          >
+            <svg
+              className="absolute bottom-0 overflow-hidden"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              version="1.1"
+              viewBox="0 0 2560 100"
+              x="0"
+              y="0"
+            >
+              <polygon
+                className="text-gray-300 fill-current"
+                points="2560 0 2560 100 0 100"
+              ></polygon>
+            </svg>
           </div>
         </div>
-      </section>
-      <section className="mt-28">
-        <div className="w-full md:mt-28 ">
-          <h3 className="font-bold text-center text-gray-500 text-2xl relative mb-10">
-            HOW IT WORKS
-          </h3>
-          <h4 className="text-gray-500 text-2xl text-center">
-            Trading, swapping and investing cryptocurrency can be simple,
-            <br /> easy and secure with Prime Investors.
-          </h4>
-          <div className="grid md:grid-cols-2 gap-10">
-            <div className="h-fit md:w-80 md:ml-64 shadow-2xl p-8 font-bold text-xl">
-              <p>Login or sign up to your trading dashboard</p>
-              <svg
-                class="w-6 h-6 hidden md:block"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                  clip-rule="evenodd"
-                ></path>
-                <path
-                  fill-rule="evenodd"
-                  d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </div>
-            <div className="h-fit md:w-80 md:ml-28 shadow-2xl p-8 font-bold text-xl">
-              <p>Select digital currency to Trade, Swap Or Invest</p>
-              <svg
-                class="w-6 h-6 hidden md:block"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </div>
-          </div>
 
-          <div className="grid md:grid-cols-2 mt-10">
-            <div className="h-fit md:w-80 md:ml-56 shadow-2xl p-8 font-bold text-xl">
-              <p>Complete trading procedures</p>
-              <svg
-                class="w-6 h-6 hidden md:block"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </div>
-
-            <div className="h-fit md:w-80 md:ml-24 shadow-2xl p-8 font-bold text-xl">
-              <p>Recieve payment or crypto-currency</p>
-              <svg
-                class="w-6 h-6 hidden md:block"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </div>
-          </div>
-
-          <div className="md:flex justify-around bg-white w-fit p-10 md:p-24 mb-5 mt-28">
-            <div className="h-fit md:text-justify w-full md:ml-5 text-gray-500 font-bold">
-              <h2 className="text-3xl mb-2">Why Trust Us ?</h2>
-              <h3 className="text-2xl">
-                PrimeInvestors is a user friendly crypto platform, aimed at
-                delivering the best crypto services. With active customers in
-                over 15 countries in the world, including but not limited to
-                United States, Canada, United Kingdom, Cyprus, Turkey, Russia,
-                West Africa.
-              </h3>
-
-              {/* <p>
-                <a href="index">Lean more...</a>
-              </p> */}
-            </div>
-            <div className="">
-              {/* <img src={require('../images/bg3.png')} alt='BTC' className='w-full'/> */}
-            </div>
-          </div>
-          <section>
-            <div className="grid md:grid-cols-2 md:h-64 w-full bg-blue-600">
-              <div>
-                <img
-                  src={require("../../images/mobile.png").default}
-                  alt="BTC"
-                  className="md:-mt-16 w-96 md:ml-14"
-                />
+        <section className="pb-20 bg-gray-300 -mt-24">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap">
+              <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                  <div className="px-4 py-5 flex-auto">
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
+                      <FaEthereum />
+                    </div>
+                    <h6 className="text-xl font-semibold">ETHEREUM (ETH)</h6>
+                    <p className="mt-2 mb-4 text-gray-600">
+                      Ethereum is a decentralized, open-source blockchain with
+                      smart contract functionality. Ether is the native
+                      cryptocurrency of the platform. Among cryptocurrencies,
+                      Ether is second only to Bitcoin in market capitalization
+                    </p>
+                    {price && <p>Current Price: ${price.ethereum.usd}</p>}
+                  </div>
+                </div>
               </div>
 
-              <div className="text-white text-2xl mt-7 md:mr-28 p-3">
-                <h2>Coming Soon - PrimeInvestors App</h2>
-                <h3 className="text-xl">
-                  Our Mobile App would be available on Apple and Google play
-                  store(s) soon
+              <div className="w-full md:w-4/12 px-4 text-center">
+                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                  <div className="px-4 py-5 flex-auto">
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
+                      <BiBitcoin />
+                    </div>
+                    <h6 className="text-xl font-semibold">BITCOIN (BTC)</h6>
+
+                    <p className="mt-2 mb-4 text-gray-600">
+                      Bitcoin is a decentralized digital currency, without a
+                      central bank or single administrator, that can be sent
+                      from user to user on the peer-to-peer bitcoin network
+                      without the need for intermediaries
+                    </p>
+                    {price && <p>Current Price: ${price.bitcoin.usd}</p>}
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 w-full md:w-4/12 px-4 text-center">
+                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                  <div className="px-4 py-5 flex-auto">
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-400">
+                      <i className="">T</i>
+                    </div>
+                    <h6 className="text-xl font-semibold">TETHER (USDT)</h6>
+                    <p className="mt-2 mb-4 text-gray-600">
+                      Tether is a cryptocurrency that is hosted on the Ethereum
+                      and Bitcoin blockchains, among others. Its tokens are
+                      issued by the Hong Kong company Tether Limited, which in
+                      turn is controlled by the owners of Bitfinex
+                    </p>
+                    {price && <p>Current Price: ${price.tether.usd}</p>}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center mt-32" id="about">
+              <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
+                <div className="text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-gray-100">
+                  <RiTeamFill />
+                </div>
+                <h3 className="text-3xl mb-2 font-semibold leading-normal">
+                  Working with us is a pleasure
                 </h3>
-                <div className="grid grid-cols-2 mt-10">
-                  <div className="flex justify-left">
-                    <FaGooglePlay className="mt-1" />
-                    <p className="text-white ml-4">Google play</p>
+                <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
+                  PrimeInvestors is a user friendly crypto platform, aimed at
+                  delivering the best crypto services. With active customers in
+                  over 15 countries in the world, including but not limited to
+                  United States, Canada, United Kingdom, Cyprus, Turkey, Russia,
+                  West Africa.
+                </p>
+
+                <a href="/register" className="font-bold text-gray-800 mt-8">
+                  Open an account now!
+                </a>
+              </div>
+
+              <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
+                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-pink-600">
+                  <img
+                    alt="..."
+                    src="https://cdn.pixabay.com/photo/2020/07/08/04/12/work-5382501_960_720.jpg"
+                    className="w-full align-middle rounded-t-lg"
+                  />
+                  <blockquote className="relative p-8 mb-4">
+                    <svg
+                      preserveAspectRatio="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 583 95"
+                      className="absolute left-0 w-full block"
+                      style={{
+                        height: "95px",
+                        top: "-94px",
+                      }}
+                    >
+                      <polygon
+                        points="-30,95 583,95 583,65"
+                        className="text-pink-600 fill-current"
+                      ></polygon>
+                    </svg>
+                    <h4 className="text-xl font-bold text-white">
+                      Top Notch Services
+                    </h4>
+                    <p className="text-md font-light mt-2 text-white">
+                      Our users are top priority and as such we have a
+                      customers' service team that is always readily available
+                      to answer your questions/complaints
+                    </p>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="relative py-20">
+          <div
+            className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+            style={{ height: "80px" }}
+          >
+            <svg
+              className="absolute bottom-0 overflow-hidden"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              version="1.1"
+              viewBox="0 0 2560 100"
+              x="0"
+              y="0"
+            >
+              <polygon
+                className="text-white fill-current"
+                points="2560 0 2560 100 0 100"
+              ></polygon>
+            </svg>
+          </div>
+
+          <div className="container mx-auto px-4">
+            <div className="items-center flex flex-wrap">
+              <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
+                <img
+                  alt="..."
+                  className="max-w-full rounded-lg shadow-lg"
+                  src="https://cdn.pixabay.com/photo/2021/08/24/21/09/idea-6571827_960_720.png"
+                />
+              </div>
+              <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
+                <div className="md:pr-12">
+                  <div className="text-pink-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-pink-300">
+                    <BsBarChartSteps />
                   </div>
-                  <div className="flex justify-left">
-                    <GrAppleAppStore className="mt-1" />
-                    <p className="text-white ml-3">Apple Store</p>
+                  <h3 className="text-3xl font-semibold">HOW IT WORKS</h3>
+                  <p className="mt-4 text-lg leading-relaxed text-gray-600">
+                    Trading, swapping and investing cryptocurrency can be
+                    simple, easy and secure with Prime Investors.
+                  </p>
+                  <ul className="list-none mt-6">
+                    <li className="py-2">
+                      <div className="flex items-center">
+                        <div>
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
+                            <i className="fas fa-fingerprint"></i>
+                          </span>
+                        </div>
+                        <div>
+                          <h4 className="text-gray-600">
+                            Login or sign up to your trading dashboard
+                          </h4>
+                        </div>
+                      </div>
+                    </li>
+                    <li className="py-2">
+                      <div className="flex items-center">
+                        <div>
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
+                            <i className="fab fa-html5"></i>
+                          </span>
+                        </div>
+                        <div>
+                          <h4 className="text-gray-600">
+                            Select digital currency to Trade, Swap Or Invest
+                          </h4>
+                        </div>
+                      </div>
+                    </li>
+                    <li className="py-2">
+                      <div className="flex items-center">
+                        <div>
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
+                            <i className="far fa-paper-plane"></i>
+                          </span>
+                        </div>
+                        <div>
+                          <h4 className="text-gray-600">
+                            Recieve payment or crypto-currency
+                          </h4>
+                        </div>
+                      </div>
+                    </li>
+                    <li className="py-2">
+                      <div className="flex items-center">
+                        <div>
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
+                            <i className="far fa-paper-plane"></i>
+                          </span>
+                        </div>
+                        <div>
+                          <h4 className="text-gray-600">
+                            Complete trading procedures
+                          </h4>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="pb-20 relative block bg-gray-900">
+          <div
+            className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+            style={{ height: "80px" }}
+          >
+            <svg
+              className="absolute bottom-0 overflow-hidden"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              version="1.1"
+              viewBox="0 0 2560 100"
+              x="0"
+              y="0"
+            >
+              <polygon
+                className="text-gray-900 fill-current"
+                points="2560 0 2560 100 0 100"
+              ></polygon>
+            </svg>
+          </div>
+
+          <div className="container mx-auto px-4 lg:pt-24 lg:pb-64">
+            <div className="flex flex-wrap text-center justify-center">
+              <div className="w-full lg:w-6/12 px-4">
+                <h2 className="text-4xl font-semibold text-white">
+                  Coming Soon - PrimeInvestors App
+                </h2>
+                <p className="text-lg leading-relaxed mt-4 mb-4 text-gray-500">
+                  Our Mobile App would be available on Apple and Google play
+                  store(s) soon with more flexible features to ease your
+                  expirience.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap mt-12 justify-center">
+              <div className="w-full lg:w-3/12 px-4 text-center">
+                <div className="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
+                  <FaGooglePlay className="mt-1" />
+                </div>
+                <h6 className="text-xl mt-5 font-semibold text-white">
+                  Google Play Store
+                </h6>
+              </div>
+              <div className="w-full lg:w-3/12 px-4 text-center">
+                <div className="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
+                  <GrAppleAppStore className="mt-1" />
+                </div>
+                <h5 className="text-xl mt-5 font-semibold text-white">
+                  Apple Store
+                </h5>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="relative block py-24 lg:pt-0 bg-gray-900">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
+              <div className="w-full lg:w-6/12 px-4">
+                <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg">
+                  <div className="flex-auto p-5 lg:p-10">
+                    <img
+                      src={require("../../images/mobile.png").default}
+                      alt="BTC"
+                      className="md:-mt-16 w-96 md:ml-14"
+                    />
                   </div>
                 </div>
               </div>
             </div>
-          </section>
-
-          <section>
-            <div className="md:mt-24 h-fit w-full">
-              <h2 className="mb-10 mt-14 text-3xl font-bold text-gray-600 text-center">
-                Frequently Asked Questions
-              </h2>
-              <div className="grid md:grid-cols-3 p-3 mb-10">
-                <div className="w-fit mb-5 p-4 rounded-md shadow-2xl bg-indigo-300 md:mx-10">
-                  <span>
-                    <h2 className="font-bold text-2xl">
-                      What is PrimeInvestors?
-                    </h2>
-
-                    <p>
-                      PrimeInvestors is a digital cryptocurrency platform where
-                      you can buy, sell or swap your crypto currencies at juicy
-                      rates.
-                    </p>
-                  </span>
-                </div>
-                <div className="h-fit mb-5 w-fit text-justify rounded-md p-4  shadow-2xl bg-indigo-400 md:mx-10">
-                  <span>
-                    <h2 className="font-bold text-2xl">What is Ethereum?</h2>
-
-                    <p>
-                      Ethereum is a decentralized open source blockchain
-                      featuring smart contract functionality. It is the
-                      second-largest cryptocurrency by market capitalization,
-                      behind Bitcoin.
-                    </p>
-                  </span>
-                </div>
-                <div className="h-fit mb-5 w-fit text-justify p-4 rounded-md shadow-2xl bg-indigo-500 md:mx-10">
-                  <span>
-                    <h2 className="font-bold text-2xl">What is Bitcoin?</h2>
-
-                    <p>
-                      Bitcoin is a cryptocurrency invented in 2008 by an unknown
-                      person or group of people using the name Satoshi Nakamoto
-                      and started in 2009 when its implementation was released
-                      as open-source software.
-                    </p>
-                  </span>
-                </div>
-              </div>
-
-              {/* <span className="font-bold p-3 md:ml-96 hover:bg-indigo-400 hover:text-white shadow-lg duration-700 animate-bounce">
-                <a href=""> More FAQs</a>
-              </span> */}
-            </div>
-          </section>
-        </div>
-      </section>
+          </div>
+        </section>
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }

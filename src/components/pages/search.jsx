@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Footer from "../layout/Footer";
+import Navbar from "../layout/Navbar";
 export default function Search() {
   const [transactions, setTransactions] = useState([]);
   const [transactionId, setTransactionId] = useState("");
-  
 
   async function searchTransaction(e) {
     e.preventDefault();
@@ -20,11 +20,7 @@ export default function Search() {
 
   return (
     <div className="bg-secondary-100">
-      {/* <img
-        src={require("../../images/truck.png").default}
-        alt="ETH"
-        className="w-screen h-80"
-      /> */}
+      <Navbar />
       <form onSubmit={searchTransaction} className="mt-56 md:ml-96 ml-3">
         <input
           onChange={(e) => setTransactionId(e.target.value)}
@@ -41,9 +37,7 @@ export default function Search() {
 
       <div>
         <div className="">
-          <h1 className="text-3xl font-bold text-center">
-            Transactions
-          </h1>
+          <h1 className="text-3xl font-bold text-center">Transactions</h1>
           <div className="md:p-56 md:-mt-48">
             <table className="md:w-full table-auto mb-20 p-10 border-collapse border border-slate-400">
               <thead>
@@ -54,13 +48,13 @@ export default function Search() {
                   <th className="border border-slate-300">Amount</th>
                   <th className="border border-slate-300">Address</th>
                   <th className="border border-slate-300">Status</th>
-                  
+
                   {/* <th className="">Click</th> */}
                 </tr>
               </thead>
-             
+
               <tbody>
-                <tr className="text-center"> 
+                <tr className="text-center">
                   <td>{transactions._id}</td>
                   <td>{transactions.crypto}</td>
                   <td>{transactions.type}</td>

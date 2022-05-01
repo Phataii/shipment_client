@@ -30,7 +30,9 @@ function Router() {
         <Route path="/search">
           <Search />
         </Route>
-
+        <Route exact path="/chart">
+          <Chart />
+        </Route>
         {!loggedIn && (
           <>
             <Route path="/register">
@@ -44,14 +46,14 @@ function Router() {
         {loggedIn && (
           <>
             <Route exact path="/transaction">
-              <Navbar/>
+              <Navbar />
               <Transactions />
             </Route>
             <Route path="/etherpay">
               <App />
             </Route>
             <Route exact path="/history">
-            <Navbar/>
+              <Navbar />
               <History />
             </Route>
             <Route exact path="/withdraw">
@@ -60,9 +62,7 @@ function Router() {
             <Route exact path="/deposit">
               <Deposit />
             </Route>
-            <Route exact path="/chart">
-              <Chart />
-            </Route>
+
             <Route exact path="/transaction/:id/edit">
               <EditTransaction />
             </Route>

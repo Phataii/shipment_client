@@ -8,8 +8,8 @@ function Navbar() {
   const { loggedIn } = useContext(AuthContext);
 
   return (
-    <div class="bg-blue-600">
-      <div class="h-auto">
+    <div class="bg-gray-900">
+      <div class="h-full">
         <nav class="md:flex md:justify-around ">
           <div class="flex justify-between">
             <h1 class="font-bold uppercase p-4 text-white text-3xl">
@@ -41,32 +41,43 @@ function Navbar() {
             <ul class="text-md md:mt-6 md:flex md:justify-around">
               <li class="py-1">
                 <a href="/" class="px-4 flex text-white">
-                  <span>HOME</span>
+                  <span>Home</span>
                 </a>
               </li>
               <li class="py-1">
                 <a href="#about" class="px-4 flex text-white">
-                  <span>ABOUT</span>
+                  <span>About</span>
                 </a>
               </li>
               <li class="py-1">
                 <a href="#service" class="px-4 flex text-white">
-                  <span>SERVICES</span>
+                  <span>Services</span>
                 </a>
               </li>
               <li class="py-1">
-                <a href="#contact" class="px-4 flex text-white">
-                  <span>CONTACT</span>
+                <a href="/chart" class="px-4 flex text-white">
+                  <span>Chart</span>
+                </a>
+              </li>
+              <li class="py-1">
+                <a href="#service" class="px-4 flex text-white">
+                  <span>FAQs</span>
                 </a>
               </li>
 
               <li className="py-1">
                 {!loggedIn && (
                   <>
-                    <Link to="/login">
-                      <span className="md:ml-5 p-3 rounded-md text-gray-200 font-bold text-sm md:ring-2 ring-blue-500/50  hover:bg-white hover:text-blue-500 duration-700">
-                        Login / Signup
+                    <Link to="/register">
+                      <span className="md:ml-5 p-3 rounded-md text-gray-200 font-bold text-sm md:ring-2 ring-blue-500/50 md:bg-white md:text-gray-900 hover:text-blue-500 duration-700">
+                        Open account
                       </span>
+                    </Link>
+                    <Link
+                      to="/login"
+                      className="md:ml-5 p-3 rounded-md text-gray-200 font-bold text-sm md:ring-2 ring-blue-500/50  hover:bg-white hover:text-gray-900 duration-700"
+                    >
+                      Sign in
                     </Link>
                   </>
                 )}
