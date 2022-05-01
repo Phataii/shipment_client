@@ -54,16 +54,17 @@ function Navbar() {
                   <span>Services</span>
                 </a>
               </li>
-              <li class="py-1">
-                <a href="/chart" class="px-4 flex text-white">
+              <Link to="/chart">
+                <li class="py-1 px-4 flex text-white">
                   <span>Chart</span>
-                </a>
-              </li>
-              <li class="py-1">
-                <a href="#service" class="px-4 flex text-white">
+                </li>
+              </Link>
+
+              <Link to="/faqs">
+                <li class="py-1 px-4 flex text-white">
                   <span>FAQs</span>
-                </a>
-              </li>
+                </li>
+              </Link>
 
               <li className="py-1">
                 {!loggedIn && (
