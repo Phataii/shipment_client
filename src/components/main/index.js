@@ -344,7 +344,7 @@ export default function Landing() {
                     className="rounded-full"
                     width="50%"
                   />
-                  <h2 className="mt-24 ml-8">John Doe</h2>
+                  <h2 className="mt-16 ml-8 text-2xl font-bold">John Doe</h2>
                 </span>
                 <hr />
                 <p>
@@ -362,7 +362,7 @@ export default function Landing() {
                     className="rounded-full"
                     width="50%"
                   />
-                  <h2 className="mt-24 ml-8">John Doe</h2>
+                  <h2 className="mt-16 ml-8 text-2xl font-bold">John Doe</h2>
                 </span>
                 <hr />
                 <p>
@@ -380,7 +380,7 @@ export default function Landing() {
                     className="rounded-full"
                     width="50%"
                   />
-                  <h2 className="mt-24 ml-8">John Doe</h2>
+                  <h2 className="mt-16 ml-8 text-2xl font-bold">John Doe</h2>
                 </span>
                 <hr />
                 <p>
