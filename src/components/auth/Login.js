@@ -34,11 +34,6 @@ function Login() {
     <div>
       <Navbar />
       <div className="grid md:grid-cols-5 mb-14">
-        <img
-          src={require("../../images/mb.png").default}
-          alt="BTC"
-          className=" md:hidden"
-        />
         <section className="col-span-3 bg-white md:mx-10 card2 my-24 md:ml-56">
           <div className="text-center md:p-5 md:mt-2">
             {/* <h1 className="font-bold text-3xl">Welcome Back!</h1> */}

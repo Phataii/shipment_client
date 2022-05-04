@@ -38,11 +38,6 @@ function Register() {
     <div>
       <Navbar />
       <div className="grid md:grid-cols-4">
-        <img
-          src={require("../../images/mb.png").default}
-          alt="Reg"
-          className="mt-5 md:hidden"
-        />
         <section className="md:col-span-2 bg-white md:mx-10 -mt-5 md:mt-20 my-20 md:ml-28">
           <div className="text-center p-5 md:mt-5">
             <h1 className="font-bold text-3xl md:hidden">Prime Investors</h1>
