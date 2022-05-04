@@ -84,11 +84,11 @@ function Register() {
             </Link>
           </p>
         </section>
-        <section className="md:col-span-2 hidden md:block -ml-14 mr-8 mt-10">
+        <section className="md:col-span-2 hidden md:block -ml-14 mr-8">
           <img
             src={require("../../images/reg.png").default}
             alt="Reg"
-            className="hidden md:block w-96 mt-24"
+            className="hidden md:block"
           />
         </section>
       </div>

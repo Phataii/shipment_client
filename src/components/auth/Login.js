@@ -39,13 +39,13 @@ function Login() {
             {/* <h1 className="font-bold text-3xl">Welcome Back!</h1> */}
             <h2 className="text-gray-600 text-2xl">Your Surest crypto Plug!</h2>
           </div>
-          <form onSubmit={login} className="md:ml-11 ml-5">
+          <form onSubmit={login} className="md:ml-11 ml-5 p-3">
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               placeholder="example@example.com"
-              className="border-l-4 border-gray-700 w-4/5 rounded-md shadow-md p-2 mt-1 mb-3"
+              className="border-l-4 border-gray-700 w-full rounded-md shadow-md p-2 mt-1 mb-3"
             />
             <br />
 
@@ -54,7 +54,7 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
               type="password"
               placeholder="Password"
-              className="border-l-4 border-gray-700 w-4/5 rounded-md shadow-md p-2 mt-1 mb-3"
+              className="border-l-4 border-gray-700 w-full rounded-md shadow-md p-2 mt-1 mb-3"
             />
             <br />
 
