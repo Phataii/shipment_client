@@ -61,7 +61,7 @@ export default function Landing() {
                     Smooth Payout | Safe Trade | Affordable Rate
                   </p>
                   <a href="/register">
-                    <button className="text-gray-300 text-3xl border-2 p-2 mt-3 hover:bg-gray-900 hover:text-white duration-700">
+                    <button className="text-gray-200 font-bold bg-green-700 text-3xl border-2 p-2 mt-3 hover:bg-transparent hover:text-white duration-700">
                       START TRADING
                     </button>
                   </a>
@@ -312,7 +312,88 @@ export default function Landing() {
             </div>
           </div>
         </section>
+        {/* Testimonies */}
+        <section className="relative py-20 bg-gray-100">
+          <div
+            className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+            style={{ height: "80px" }}
+          >
+            <svg
+              className="absolute bottom-0 overflow-hidden"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              version="1.1"
+              viewBox="0 0 2560 100"
+              x="0"
+              y="0"
+            >
+              <polygon
+                className="text-white fill-current"
+                points="2560 0 2560 100 0 100"
+              ></polygon>
+            </svg>
+          </div>
 
+          <div className="container mx-auto px-4">
+            <div className="items-center flex flex-wrap grid md:grid-cols-3">
+              <div className="p-3 text-center">
+                <span className="flex mb-2">
+                  <img
+                    src={require("../../assets/img/team-1-800x800.jpg").default}
+                    alt="BTC"
+                    className="rounded-full"
+                    width="50%"
+                  />
+                  <h2 className="mt-24 ml-8">John Doe</h2>
+                </span>
+                <hr />
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur, repellat obcaecati nam impedit suscipit soluta
+                  corporis esse quasi, perferendis doloribus commodi libero,
+                  fugiat velit quidem reiciendis dolor sequi iste est!
+                </p>
+              </div>
+              <div className="p-3 text-center">
+                <span className="flex mb-2">
+                  <img
+                    src={require("../../assets/img/team-1-800x800.jpg").default}
+                    alt="BTC"
+                    className="rounded-full"
+                    width="50%"
+                  />
+                  <h2 className="mt-24 ml-8">John Doe</h2>
+                </span>
+                <hr />
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur, repellat obcaecati nam impedit suscipit soluta
+                  corporis esse quasi, perferendis doloribus commodi libero,
+                  fugiat velit quidem reiciendis dolor sequi iste est!
+                </p>
+              </div>
+              <div className="p-3 text-center">
+                <span className="flex mb-2">
+                  <img
+                    src={require("../../assets/img/team-1-800x800.jpg").default}
+                    alt="BTC"
+                    className="rounded-full"
+                    width="50%"
+                  />
+                  <h2 className="mt-24 ml-8">John Doe</h2>
+                </span>
+                <hr />
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur, repellat obcaecati nam impedit suscipit soluta
+                  corporis esse quasi, perferendis doloribus commodi libero,
+                  fugiat velit quidem reiciendis dolor sequi iste est!
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* Mobile */}
         <section className="pb-20 relative block bg-gray-900">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
