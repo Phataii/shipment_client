@@ -9,7 +9,6 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVerify, setPasswordVerify] = useState("");
-  const [role] = useState("user");
 
   const { getLoggedIn } = useContext(AuthContext);
   const history = useHistory();
@@ -22,7 +21,6 @@ function Register() {
         email,
         password,
         passwordVerify,
-        role,
       };
 
       await requestClient.post("/auth", registerData);
