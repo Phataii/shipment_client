@@ -1,4 +1,4 @@
-import axios from "axios";
+import { requestClient } from "../../utils/request-client";
 import React, { useState, useContext } from "react";
 import LogOutBtn from "../auth/LogOutBtn";
 import AuthContext from "../../context/AuthContext";
@@ -51,7 +51,7 @@ function TransactionsForm({ getTransactions }) {
         status,
         type,
       };
-      await axios.post("http://localhost:8080/transaction/", transactionData, {
+      await requestClient.post("transaction/", transactionData, {
         withCredentials: true,
       });
       alert("Request has been sent!");
@@ -258,7 +258,6 @@ function TransactionsForm({ getTransactions }) {
         </header>
 
         <div className="">
-         
           <h2 className="font-bold text-5xl uppercase mt-7 pb-2 border-b border-gray-200 text-center">
             Enter details below
           </h2>
@@ -266,81 +265,78 @@ function TransactionsForm({ getTransactions }) {
             Skip bank field if currency type is not NGN (Naira)
           </h2>
           <form onSubmit={saveTransaction} className="">
-          <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
-            <div className="flex-auto p-5 lg:p-10">
-              <h4 className="text-2xl font-semibold">Need to make a Withdrawal?</h4>
-              <p className="leading-relaxed mt-1 mb-4 text-gray-600">
-                Complete this form and we will get back to you in 24 hours.
-              </p>
-              <div className="relative w-full mb-3 mt-8">
-                
+            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
+              <div className="flex-auto p-5 lg:p-10">
+                <h4 className="text-2xl font-semibold">
+                  Need to make a Withdrawal?
+                </h4>
+                <p className="leading-relaxed mt-1 mb-4 text-gray-600">
+                  Complete this form and we will get back to you in 24 hours.
+                </p>
+                <div className="relative w-full mb-3 mt-8">
+                  <select
+                    className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                    value={crypto}
+                    required
+                    onChange={(e) => setCrypto(e.target.value)}
+                    style={{ transition: "all .15s ease" }}
+                  >
+                    <option>Choose Currency</option>
+                    <option>Bitcoin BTC</option>
+                    <option>Etherium ETH</option>
+                    <option>USDT</option>
+                    <option>Naira NGN</option>
+                  </select>
+                </div>
+                <div className="relative w-full mb-3">
+                  <select
+                    //name="banks"
+                    value={bank}
+                    onChange={(e) => setBank(e.target.value)}
+                    className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                    style={{ transition: "all .15s ease" }}
+                  >
+                    <option value="">Select NGN bank</option>
+                    {banks.map((bank, key) => (
+                      <option key={key} value={bank.name}>
+                        {bank.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="relative w-full mb-3">
+                  <input
+                    value={walletAddress}
+                    onChange={(e) => setWalletAddress(e.target.value)}
+                    type="text"
+                    className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                    placeholder="wallet address"
+                    style={{ transition: "all .15s ease" }}
+                  />
+                </div>
 
-                <select
-                  className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                  value={crypto}
-                  required
-                  onChange={(e) => setCrypto(e.target.value)}
-                  style={{ transition: "all .15s ease" }}
-                >
-                  <option>Choose Currency</option>
-                  <option>Bitcoin BTC</option>
-                  <option>Etherium ETH</option>
-                  <option>USDT</option>
-                  <option>Naira NGN</option>
-                </select>
-              </div>
-              <div className="relative w-full mb-3">
-                <select
-                  //name="banks"
-                  value={bank}
-                  onChange={(e) => setBank(e.target.value)}
-                  className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                  style={{ transition: "all .15s ease" }}
-                   >
-                  <option value="">Select NGN bank</option>
-                  {banks.map((bank, key) => (
-                    <option key={key} value={bank.name}>
-                      {bank.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="relative w-full mb-3">
-                
-                <input
-                value={walletAddress}
-                onChange={(e) => setWalletAddress(e.target.value)}
-                  type="text"
-                  className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                  placeholder="wallet address"
-                  style={{ transition: "all .15s ease" }}
-                />
-              </div>
-
-              <div className="relative w-full mb-3">
-                
-                <input
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}  
-                  type="number"
-                  className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                  placeholder="amount"
-                  style={{ transition: "all .15s ease" }}
-                />
-              </div>
-              <div className="text-center mt-6">
-                <button
-                  className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                  type="submit"
-                  style={{ transition: "all .15s ease" }}
-                >
-                  Send request
-                </button>
+                <div className="relative w-full mb-3">
+                  <input
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                    type="number"
+                    className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                    placeholder="amount"
+                    style={{ transition: "all .15s ease" }}
+                  />
+                </div>
+                <div className="text-center mt-6">
+                  <button
+                    className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                    type="submit"
+                    style={{ transition: "all .15s ease" }}
+                  >
+                    Send request
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
           </form>
-          
         </div>
       </main>
     </div>

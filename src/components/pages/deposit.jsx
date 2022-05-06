@@ -1,5 +1,5 @@
-import React, { useState,useContext } from "react";
-import axios from "axios";
+import React, { useState, useContext } from "react";
+import { requestClient } from "../../utils/request-client";
 import LogOutBtn from "../auth/LogOutBtn";
 import AuthContext from "../../context/AuthContext";
 import btc from "../../images/btc.png";
@@ -13,23 +13,23 @@ export default function Deposit({ getTransactions }) {
       name: "Bitcoin (BTC)",
       address: "0x5f5B64a6bD240ca41DB465FEf52b0faDa32c0180",
       pic: btc,
-      alt:'BTC',
-      key:0
+      alt: "BTC",
+      key: 0,
     },
     {
       name: "Ethereum (ETH)",
       address: "0x5f5B64a6bD240ca41DB465FEf52b0faDa32c0180",
-      metamask:"Use MetaMask",
+      metamask: "Use MetaMask",
       pic: eth,
-      alt:'ETH',
-      key:1
+      alt: "ETH",
+      key: 1,
     },
     {
       name: "Tether (USDT)",
       address: "0x5f5B64a6bD240ca41DB465FEf52b0faDa32c0180",
       pic: usdt,
-      alt:'USDT',
-      key:2
+      alt: "USDT",
+      key: 2,
     },
   ]);
   const [amount, setAmount] = useState("");
@@ -47,43 +47,47 @@ export default function Deposit({ getTransactions }) {
         status,
         type,
       };
-      await axios.post("http://localhost:8080/transaction/", transactionData);
-      alert("Transaction has been initiated. Go ahead and copy address")
+      await requestClient.post("transaction/", transactionData);
+      alert("Transaction has been initiated. Go ahead and copy address");
     } catch (err) {
       console.error(err);
-      alert("Transaction Failed to initiate.")
+      alert("Transaction Failed to initiate.");
     }
   }
 
   return (
-      <div class="grid md:grid-cols-5 bg-secondary-100 text-gray-800 h-fit">
-        {/* Content */}
-        <div class="md:col-span-1 md:flex md:justify-end bg-gray-500">
+    <div class="grid md:grid-cols-5 bg-secondary-100 text-gray-800 h-fit">
+      {/* Content */}
+      <div class="md:col-span-1 md:flex md:justify-end bg-gray-500">
         <nav class="text-right">
-            <div class="flex justify-between items-center">
-              <h1 class="font-bold uppercase p-4 border-b border-gray-100 text-3xl">
-                <a href="/" class="hover:text-gray-800">
-                  PrimeInvestors
-                </a>
-              </h1>
-              <div class="cursor-pointer mx-10 md:hidden"  onClick={() => setNav(!nav)}>
-                <svg
-                  class="w-6 ml-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  ></path>
-                </svg>
-              </div>
+          <div class="flex justify-between items-center">
+            <h1 class="font-bold uppercase p-4 border-b border-gray-100 text-3xl">
+              <a href="/" class="hover:text-gray-800">
+                PrimeInvestors
+              </a>
+            </h1>
+            <div
+              class="cursor-pointer mx-10 md:hidden"
+              onClick={() => setNav(!nav)}
+            >
+              <svg
+                class="w-6 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
             </div>
-            {nav && <ul class="text-md mt-6 md:block">
+          </div>
+          {nav && (
+            <ul class="text-md mt-6 md:block">
               <li class="py-2 text-xl">
                 <a href="dashboard" class="px-4 flex justify-end border-r-4">
                   <span>Account</span>
@@ -235,96 +239,85 @@ export default function Deposit({ getTransactions }) {
                   </svg>
                 </a>
               </li>
-            </ul>}
-          </nav>
-        </div>
-        {/* End Nav */}
-        <main class="px-16 py-6 md:col-span-4">
-          <header>
-            <h2>Hi, {loggedIn.email}</h2>
-            <h4 class="font-bold pb-2">DEPOSIT</h4>
-          </header>
+            </ul>
+          )}
+        </nav>
+      </div>
+      {/* End Nav */}
+      <main class="px-16 py-6 md:col-span-4">
+        <header>
+          <h2>Hi, {loggedIn.email}</h2>
+          <h4 class="font-bold pb-2">DEPOSIT</h4>
+        </header>
 
-          <div>
+        <div>
+          <h4 class="font-bold mt-12 pb-2 border-b border-gray-200">
+            Kindly choose and copy the wallet address of the cryptocurrency
+          </h4>
+          <form
+            onSubmit={saveTransaction}
+            className="md:ml-10 ml-5 w-full mt-5"
+          >
             <h4 class="font-bold mt-12 pb-2 border-b border-gray-200">
-              Kindly choose and copy the wallet address of the cryptocurrency
+              Step 1: Initiate your deposit transaction before continuing{" "}
             </h4>
-            <form
-              onSubmit={saveTransaction}
-              className="md:ml-10 ml-5 w-full mt-5"
+            <select
+              className="border-l-4 border-blue-600 w-4/5 rounded-md shadow-md p-2 mt-1 mb-3 text-gray-900"
+              value={crypto}
+              onChange={(e) => setCrypto(e.target.value)}
             >
-              <h4 class="font-bold mt-12 pb-2 border-b border-gray-200">
-                Step 1: Initiate your deposit transaction before continuing{" "}
-              </h4>
-              <select
-                className="border-l-4 border-blue-600 w-4/5 rounded-md shadow-md p-2 mt-1 mb-3 text-gray-900"
-                value={crypto}
-                
-                onChange={(e) => setCrypto(e.target.value)}
-              >
-                <option>Choose Coin</option>
-                <option>Bitcoin BTC</option>
-                <option>Etherium ETH</option>
-                <option>USDT</option>
-                <option>Naira NGN</option>
-              </select>
-              <br />
-              <input
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-                type="number"
-                required
-                placeholder="Amount"
-                className="border-l-4 text-gray-900 border-blue-600 w-4/5 rounded-md shadow-md p-2 mt-1 mb-3"
-              />
-              <br />
-              <input
-                type="submit"
-                value="Initiate Deposit"
-                className="p-2 mt-7 md:ml-24 rounded-sm w-fit cursor-pointer text-white bg-blue-600 opacity-75"
-              />
-            </form>
-            <h4 class="font-bold mt-12 pb-2 border-b border-gray-200">
-              Step 2: Copy Address you wish to send to, Send using the MetaMask
-              Extension <span className="text-red-500">(for Eth Only).</span>{" "}
-            </h4>
-            <div class="mt-8 grid md:grid-cols-3 text-gray-200">
-              {cryptoCurrency.map((item)=>(
-                <div class="text-center text-gray-900 card2 p-4">
-                <img
-                  src={item.pic}
-                  alt={item.alt}
-                  className="ml-12 h-56"
-                />
+              <option>Choose Coin</option>
+              <option>Bitcoin BTC</option>
+              <option>Etherium ETH</option>
+              <option>USDT</option>
+              <option>Naira NGN</option>
+            </select>
+            <br />
+            <input
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              type="number"
+              required
+              placeholder="Amount"
+              className="border-l-4 text-gray-900 border-blue-600 w-4/5 rounded-md shadow-md p-2 mt-1 mb-3"
+            />
+            <br />
+            <input
+              type="submit"
+              value="Initiate Deposit"
+              className="p-2 mt-7 md:ml-24 rounded-sm w-fit cursor-pointer text-white bg-blue-600 opacity-75"
+            />
+          </form>
+          <h4 class="font-bold mt-12 pb-2 border-b border-gray-200">
+            Step 2: Copy Address you wish to send to, Send using the MetaMask
+            Extension <span className="text-red-500">(for Eth Only).</span>{" "}
+          </h4>
+          <div class="mt-8 grid md:grid-cols-3 text-gray-200">
+            {cryptoCurrency.map((item) => (
+              <div class="text-center text-gray-900 card2 p-4">
+                <img src={item.pic} alt={item.alt} className="ml-12 h-56" />
                 <span class="font-bold">{item.name}</span>
                 <br />
                 <button
                   className="btn"
-                  onClick={() =>
-                    navigator.clipboard.writeText(
-                      [item.address]
-                    )
-                  }
+                  onClick={() => navigator.clipboard.writeText([item.address])}
                 >
                   Click me to copy address
-                </button><br/>
-                <a href="etherpay"
-                  className="btn"
-                >
+                </button>
+                <br />
+                <a href="etherpay" className="btn">
                   {item.metamask}
                 </a>
               </div>
-              ))}
-              
-              
-            </div>
-            <div class="flex justify-center">
-              <div class="bg-secondary-100 text-secondary-200 btn hover:shadow-inner transform hover:scale-125 hover:bg-opacity-50 transition ease-out duration-300">
-                Load more...
-              </div>
+            ))}
+          </div>
+          <div class="flex justify-center">
+            <div class="bg-secondary-100 text-secondary-200 btn hover:shadow-inner transform hover:scale-125 hover:bg-opacity-50 transition ease-out duration-300">
+              Load more...
             </div>
           </div>
-        </main>
-      </div>
+        </div>
+      </main>
+    </div>
   );
 }
