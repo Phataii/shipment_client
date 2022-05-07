@@ -4,6 +4,8 @@ import AuthContext from "../../context/AuthContext";
 import { requestClient } from "../../utils/request-client";
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
+import "antd/dist/antd.css";
+import { message } from "antd";
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -26,9 +28,11 @@ function Register() {
       await requestClient.post("/auth", registerData);
 
       await getLoggedIn();
+      message.success("Sign up successful");
       history.push("/");
     } catch (err) {
       console.error(err);
+      message.error("An error occured!");
     }
   }
 

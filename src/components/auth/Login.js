@@ -4,6 +4,8 @@ import AuthContext from "../../context/AuthContext";
 import { requestClient } from "../../utils/request-client";
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
+import "antd/dist/antd.css";
+import { message } from "antd";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,10 +25,11 @@ function Login() {
       await requestClient.post("/auth/login", loginData);
 
       await getLoggedIn();
+
       history.push("/");
     } catch (err) {
       console.error(err);
-      alert("check");
+      message.error("Please check your credentials.");
     }
   }
 

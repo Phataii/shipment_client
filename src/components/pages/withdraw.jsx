@@ -2,6 +2,8 @@ import { requestClient } from "../../utils/request-client";
 import React, { useState, useContext } from "react";
 import LogOutBtn from "../auth/LogOutBtn";
 import AuthContext from "../../context/AuthContext";
+import "antd/dist/antd.css";
+import { message } from "antd";
 
 function TransactionsForm({ getTransactions }) {
   const [nav, setNav] = useState(true);
@@ -54,11 +56,11 @@ function TransactionsForm({ getTransactions }) {
       await requestClient.post("transaction/", transactionData, {
         withCredentials: true,
       });
-      alert("Request has been sent!");
+      message.success("Request has been sent!");
       // getTransactions();
     } catch (err) {
       console.error(err);
-      alert("Error Sending Request. Try again!");
+      message.error("Error Sending Request. Try again!");
     }
   }
 

@@ -50,7 +50,7 @@ export default function Deposit({ getTransactions }) {
         type,
       };
       await requestClient.post("transaction/", transactionData);
-      message.success("Login success");
+      message.success("Deposit Initiated. Go ahead and copy address");
       // alert("Transaction has been initiated. Go ahead and copy address");
     } catch (err) {
       console.error(err);
