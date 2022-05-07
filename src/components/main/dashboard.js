@@ -16,7 +16,10 @@ export default function Dashboard() {
                   PrimeInvestors
                 </a>
               </h1>
-              <div class="cursor-pointer md:hidden mr-3"  onClick={() => setNav(!nav)}>
+              <div
+                class="cursor-pointer md:hidden mr-3"
+                onClick={() => setNav(!nav)}
+              >
                 <svg
                   class="w-6 ml-2"
                   fill="none"
@@ -33,162 +36,164 @@ export default function Dashboard() {
                 </svg>
               </div>
             </div>
-            {nav &&  <ul class="text-md mt-6 md:block" id="menu">
-              <li class="py-2 text-xl text-gray-700 font-bold">
-                <a
-                  href="dashboard"
-                  class="px-4 flex justify-end border-r-4 border-blue-500"
-                >
-                  <span>Account</span>
-                  <svg
-                    class="w-8 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+            {nav && (
+              <ul class="text-md mt-6 md:block" id="menu">
+                <li class="py-2 text-xl text-gray-700 font-bold">
+                  <a
+                    href="dashboard"
+                    class="px-4 flex justify-end border-r-4 border-blue-500"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    ></path>
-                  </svg>
-                </a>
-              </li>
-              <li class="text-xl mt-4">
-                <a
-                  href="chart"
-                  class="px-4 flex justify-end border-r-4 border-white"
-                >
-                  <span>Charts</span>
-                  <svg
-                    class="w-8 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                    <span>Account</span>
+                    <svg
+                      class="w-8 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+                <li class="text-xl mt-4">
+                  <a
+                    href="chart"
+                    class="px-4 flex justify-end border-r-4 border-white"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
-                    ></path>
-                  </svg>
-                </a>
-              </li>
-              <li class="text-xl">
-                <a
-                  href="deposit"
-                  class="px-4 flex justify-end border-r-4 border-white"
-                >
-                  <span className="mt-2">Deposit</span>
-                  <svg
-                    class="w-8 mt-2 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                    <span>Charts</span>
+                    <svg
+                      class="w-8 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+                <li class="text-xl">
+                  <a
+                    href="deposit"
+                    class="px-4 flex justify-end border-r-4 border-white"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-                    ></path>
-                  </svg>
-                </a>
-              </li>
-              <li class="text-xl">
-                <a
-                  href="withdraw"
-                  class="px-4 flex justify-end border-r-4 border-white"
-                >
-                  <span className="mt-2">Withdraw</span>
-                  <svg
-                    class="w-8 mt-2 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                    <span className="mt-2">Deposit</span>
+                    <svg
+                      class="w-8 mt-2 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+                <li class="text-xl">
+                  <a
+                    href="withdraw"
+                    class="px-4 flex justify-end border-r-4 border-white"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
-                    ></path>
-                  </svg>
-                </a>
-              </li>
-              <li class="text-xl">
-                <a
-                  href="history"
-                  class="px-4 flex justify-end border-r-4 border-white"
-                >
-                  <span className="mt-2">History</span>
-                  <svg
-                    class="w-8 mt-2 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                    <span className="mt-2">Withdraw</span>
+                    <svg
+                      class="w-8 mt-2 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+                <li class="text-xl">
+                  <a
+                    href="history"
+                    class="px-4 flex justify-end border-r-4 border-white"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                    ></path>
-                  </svg>
-                </a>
-              </li>
-              <li class="text-xl">
-                <a
-                  href="help"
-                  class="px-4 flex justify-end border-r-4 border-white"
-                >
-                  <span className="mt-2">Help</span>
-                  <svg
-                    class="w-8 mt-2 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                    <span className="mt-2">History</span>
+                    <svg
+                      class="w-8 mt-2 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+                <li class="text-xl">
+                  <a
+                    href="help"
+                    class="px-4 flex justify-end border-r-4 border-white"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    ></path>
-                  </svg>
-                </a>
-              </li>
-              <li class="">
-                <a
-                  href="/"
-                  class="px-4 flex justify-end border-r-4 border-white"
-                >
-                  <LogOutBtn />
-                  <svg
-                    class="w-8 mt-2 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                    <span className="mt-2">Help</span>
+                    <svg
+                      class="w-8 mt-2 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+                <li class="">
+                  <a
+                    href="/"
+                    class="px-4 flex justify-end border-r-4 border-white"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                    ></path>
-                  </svg>
-                </a>
-              </li>
-            </ul>}
+                    <LogOutBtn />
+                    <svg
+                      class="w-8 mt-2 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            )}
           </nav>
         </div>
         {/* End Nav */}
@@ -207,52 +212,27 @@ export default function Dashboard() {
             </h4>
             <div class="mt-8 grid lg:grid-cols-3 gap-10">
               {/* Cards go here */}
-
               <div class="card hover:shadow-xl">
                 <div class="p-4">
-                  <span class="font-bold">INVESTED CAPITAL:</span>
-                  <span class="block">Recepie by Mario</span>
+                  <span class="font-bold">ETHEREUM (ETH):</span>
+                  <span>Bal:</span>
                 </div>
               </div>
               <div class="card hover:shadow-xl">
                 <div class="p-4">
-                  <span class="font-bold">TRADE PROFIT:</span>
-                  <span class="block">Recepie by Mario</span>
+                  <span class="font-bold">BITCOIN (BTC):</span>
+                  <span>Bal:</span>
+                </div>
+              </div>
+              <div class="card hover:shadow-xl">
+                <div class="p-4">
+                  <span class="font-bold">TETHER (USDT):</span>
+                  <span>Bal:</span>
                 </div>
               </div>
             </div>
             <div class="mt-8 grid lg:grid-cols-3 gap-10">
               {/* Cards go here */}
-
-              <div class="card hover:shadow-xl">
-                <div class="p-4">
-                  <span class="font-bold">DAILY PROFIT:</span>
-                  <span class="block">Recepie by Mario</span>
-                </div>
-              </div>
-              <div class="card hover:shadow-xl">
-                <div class="p-4">
-                  <span class="font-bold">(BITCOIN):</span>
-                  <span class="block">DIGITAL ASSET</span>
-                </div>
-              </div>
-            </div>
-            <h4 class="font-bold mt-12 pb-2 border-b border-gray-200">
-              Most Popular
-            </h4>
-            <div class="mt-8 grid grid-cols-2 gap-10">
-              {/* Cards go here */}
-              <div class="card hover:shadow-xl">
-                <div class="p-4"></div>
-              </div>
-              <div class="card hover:shadow-xl">
-                <div class="p-4"></div>
-              </div>
-            </div>
-            <div class="flex justify-center mt-4">
-              <div class="bg-secondary-100 text-secondary-200 btn hover:shadow-inner transform hover:scale-125 hover:bg-opacity-50 transition ease-out duration-300">
-                Load more...
-              </div>
             </div>
           </div>
         </main>
