@@ -215,18 +215,21 @@ export default function Dashboard() {
               <div class="card hover:shadow-xl">
                 <div class="p-4">
                   <span class="font-bold">ETHEREUM (ETH):</span>
+                  <br />
                   <span>Bal:</span>
                 </div>
               </div>
               <div class="card hover:shadow-xl">
                 <div class="p-4">
                   <span class="font-bold">BITCOIN (BTC):</span>
+                  <br />
                   <span>Bal:</span>
                 </div>
               </div>
               <div class="card hover:shadow-xl">
                 <div class="p-4">
                   <span class="font-bold">TETHER (USDT):</span>
+                  <br />
                   <span>Bal:</span>
                 </div>
               </div>
