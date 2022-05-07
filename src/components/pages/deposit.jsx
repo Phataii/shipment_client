@@ -5,6 +5,8 @@ import AuthContext from "../../context/AuthContext";
 import btc from "../../images/btc.png";
 import eth from "../../images/eth.png";
 import usdt from "../../images/usdt.png";
+import "antd/dist/antd.css";
+import { message } from "antd";
 export default function Deposit({ getTransactions }) {
   const { loggedIn } = useContext(AuthContext);
   const [nav, setNav] = useState(true);
@@ -48,10 +50,12 @@ export default function Deposit({ getTransactions }) {
         type,
       };
       await requestClient.post("transaction/", transactionData);
-      alert("Transaction has been initiated. Go ahead and copy address");
+      message.success("Login success");
+      // alert("Transaction has been initiated. Go ahead and copy address");
     } catch (err) {
       console.error(err);
-      alert("Transaction Failed to initiate.");
+      message.error("Please check credentials");
+      // alert("Transaction Failed to initiate.");
     }
   }
 

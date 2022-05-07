@@ -35,7 +35,6 @@ export default function Chart() {
         {/* End Nav */}
         <main class="px-16 py-6">
           <div className="card2 h-fit p-2 shadow-2xl">
-            {/* <h2 className="mt-3 mr-10 p-2">Hi, {loggedIn.email}</h2> */}
             <h4 class="font-bold text-3xl mt-2 text-left">CURRENCY CHART</h4>
           </div>
           <header></header>
