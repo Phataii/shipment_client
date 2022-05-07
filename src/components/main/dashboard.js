@@ -5,7 +5,7 @@ export default function Dashboard() {
   const [nav, setNav] = useState(true);
   const { loggedIn } = useContext(AuthContext);
   return (
-    <div class="bg-secondary-100 text-gray-800 h-fit md:h-screen">
+    <div class="bg-secondary-100 text-gray-800 h-full md:h-screen">
       {/* Content */}
       <div className="grid md:grid-cols-5">
         <div class="md:col-span-1 md:flex md:justify-end bg-gray-500 h-auto">
