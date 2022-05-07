@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { ethers } from "ethers";
+import AuthContext from "../context/AuthContext";
 import ErrorMessage from "./ErrorMessage";
 import TxList from "./TxList";
 import LogOutBtn from "../components/auth/LogOutBtn";
+import "antd/dist/antd.css";
+import { message } from "antd";
 
 const startPayment = async ({ setError, setTxs, ether, addr }) => {
   try {
@@ -21,11 +24,13 @@ const startPayment = async ({ setError, setTxs, ether, addr }) => {
     //console.log("tx", tx);
     setTxs([tx]);
   } catch (err) {
-    setError(err.message);
+    //setError(err.message);
+    message.error("Somthing went wrong! Check balance for possible cause");
   }
 };
 
 export default function App() {
+  const { loggedIn } = useContext(AuthContext);
   const [error, setError] = useState();
   const [txs, setTxs] = useState([]);
 
@@ -227,8 +232,8 @@ export default function App() {
       {/* End Nav */}
       <main class="px-16 py-6 md:col-span-4">
         <header>
-          <h2>Hi, esanni5@gmail.com</h2>
-          <h4 class="font-bold pb-2">DEPOSIT ETHERIUM (WEB3)</h4>
+          <h2>Hi, {loggedIn.email}</h2>
+          <h4 class="font-bold pb-2">DEPOSIT ETHEREUM (WEB3)</h4>
         </header>
 
         <div>
