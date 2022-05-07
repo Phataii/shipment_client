@@ -8,7 +8,7 @@ export default function Dashboard() {
     <div class="bg-secondary-100 text-gray-800 h-full md:h-screen">
       {/* Content */}
       <div className="grid md:grid-cols-5">
-        <div class="md:col-span-1 md:flex md:justify-end bg-gray-500 h-auto">
+        <div class="md:col-span-1 md:flex md:justify-end bg-gray-500 h-auto md:h-full">
           <nav class="text-right">
             <div class="flex justify-between items-center">
               <h1 class="font-bold uppercase p-4 border-b border-gray-100 text-3xl">
