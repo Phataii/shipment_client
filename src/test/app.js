@@ -24,10 +24,8 @@ const startPayment = async ({ setError, setTxs, ether, addr }) => {
     //console.log("tx", tx);
     setTxs([tx]);
   } catch (err) {
-    //setError(err.message);
-    message.error(
-      "Somthing went wrong! \n\n Make sure you have MetaMask intalled \n Check balance for possible cause"
-    );
+    setError(err.message);
+    message.error("Somthing went wrong!");
   }
 };
 
