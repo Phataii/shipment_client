@@ -97,8 +97,8 @@ export default function Landing() {
               <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
-                      <FaEthereum />
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full">
+                      <FaEthereum className="text-gray-500 text-3xl" />
                     </div>
                     <h6 className="text-xl font-semibold">ETHEREUM (ETH)</h6>
                     <p className="mt-2 mb-4 text-gray-600">
@@ -115,8 +115,8 @@ export default function Landing() {
               <div className="w-full md:w-4/12 px-4 text-center">
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
-                      <BiBitcoin />
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full">
+                      <BiBitcoin className="text-yellow-500 text-3xl" />
                     </div>
                     <h6 className="text-xl font-semibold">BITCOIN (BTC)</h6>
 
@@ -134,8 +134,8 @@ export default function Landing() {
               <div className="pt-6 w-full md:w-4/12 px-4 text-center">
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-400">
-                      <i className="">T</i>
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full ">
+                      <i className="text-green-500 text-3xl">T</i>
                     </div>
                     <h6 className="text-xl font-semibold">TETHER (USDT)</h6>
                     <p className="mt-2 mb-4 text-gray-600">
