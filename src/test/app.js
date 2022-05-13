@@ -24,7 +24,7 @@ const startPayment = async ({ setError, setTxs, ether, addr }) => {
     //console.log("tx", tx);
     setTxs([tx]);
   } catch (err) {
-    setError(err.message);
+    //setError(err.message);
     message.error("Somthing went wrong!");
   }
 };

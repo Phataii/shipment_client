@@ -3,16 +3,14 @@ import React from "react";
 function TransactionsList({ transactions }) {
   return (
     <div className="">
-      <h1 className="text-3xl font-bold text-center">
-        Transactions
-      </h1>
+      <h1 className="text-3xl font-bold text-center">Transactions</h1>
       <div className="p-56 md:-mt-48">
         <table className="md:w-full table-auto mb-20 md:p-10 border-collapse border border-slate-400">
           <thead>
             <tr>
               <th className="border border-slate-300 text-center">Email</th>
               <th className="border border-slate-300 text-center">Currency</th>
-              <th className="border border-slate-300 text-center">Bank</th>
+              <th className="border border-slate-300 text-center">Bank(NGN)</th>
               <th className="border border-slate-300 text-center">Type</th>
               <th className="border border-slate-300 text-center">Amount</th>
               <th className="border border-slate-300 text-center">Address</th>
