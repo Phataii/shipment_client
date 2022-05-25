@@ -10,7 +10,10 @@ import { RiTeamFill } from "react-icons/ri";
 import { FaGooglePlay } from "react-icons/fa";
 import { GrAppleAppStore } from "react-icons/gr";
 import { BsBarChartSteps } from "react-icons/bs";
-
+import { MdMarkEmailRead } from "react-icons/md";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { ImTwitter } from "react-icons/im";
+import { BsInstagram } from "react-icons/bs";
 export default function Landing() {
   const [price, setPrice] = useState("");
   const getApi = () => {
@@ -334,61 +337,97 @@ export default function Landing() {
             </svg>
           </div>
 
-          <div className="container mx-auto px-4">
-            <div className="items-center flex flex-wrap grid md:grid-cols-3">
-              <div className="p-3 text-center">
-                <span className="flex mb-2">
+          <div className="container mx-auto">
+            <h1 className="text-center text-4xl">Meet the team</h1>
+            <div className="items-center grid md:grid-cols-3">
+              <div className="text-center">
+                <span className="">
                   <img
                     src={require("../../assets/img/team-1-800x800.jpg").default}
                     alt="BTC"
-                    className="rounded-full"
-                    width="50%"
+                    className="rounded-md ml-20"
+                    width="60%"
                   />
-                  <h2 className="mt-16 ml-8 text-2xl font-bold">John Doe</h2>
+                  <h2 className="text-2xl font-bold">Moh'd Yahaya</h2>
+                  <h4 className="text-xl">Chief-Executive-Officer</h4>
+                  <span className="flex justify-around px-20 p-5">
+                    <a href="/">
+                      <MdMarkEmailRead className="text-2xl" />
+                    </a>
+
+                    <a href="/">
+                      <IoLogoWhatsapp className="text-2xl hover:text-green-600" />
+                    </a>
+
+                    <a href="/">
+                      <ImTwitter className="text-2xl hover:text-blue-500" />
+                    </a>
+
+                    <a href="/">
+                      <BsInstagram className="text-2xl hover:text-red-300" />
+                    </a>
+                  </span>
                 </span>
-                <hr />
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Consectetur, repellat obcaecati nam impedit suscipit soluta
-                  corporis esse quasi, perferendis doloribus commodi libero,
-                  fugiat velit quidem reiciendis dolor sequi iste est!
-                </p>
               </div>
-              <div className="p-3 text-center">
-                <span className="flex mb-2">
+              <div className="text-center">
+                <span className="">
                   <img
                     src={require("../../assets/img/team-1-800x800.jpg").default}
                     alt="BTC"
-                    className="rounded-full"
-                    width="50%"
+                    className="rounded-md ml-20"
+                    width="60%"
                   />
-                  <h2 className="mt-16 ml-8 text-2xl font-bold">John Doe</h2>
+                  <h2 className="text-2xl font-bold">Dominic West</h2>
+                  <h4 className="text-xl">Manager</h4>
+                  <span className="flex justify-around px-20 p-5">
+                    <a href="/">
+                      <MdMarkEmailRead className="text-2xl" />
+                    </a>
+
+                    <a href="/">
+                      <IoLogoWhatsapp className="text-2xl hover:text-green-600" />
+                    </a>
+
+                    <a href="/">
+                      <ImTwitter className="text-2xl hover:text-blue-500" />
+                    </a>
+
+                    <a href="/">
+                      <BsInstagram className="text-2xl hover:text-red-300" />
+                    </a>
+                  </span>
                 </span>
+
                 <hr />
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Consectetur, repellat obcaecati nam impedit suscipit soluta
-                  corporis esse quasi, perferendis doloribus commodi libero,
-                  fugiat velit quidem reiciendis dolor sequi iste est!
-                </p>
               </div>
-              <div className="p-3 text-center">
-                <span className="flex mb-2">
+              <div className="text-center">
+                <span className="">
                   <img
                     src={require("../../assets/img/team-1-800x800.jpg").default}
                     alt="BTC"
-                    className="rounded-full"
-                    width="50%"
+                    className="rounded-md ml-20"
+                    width="60%"
                   />
-                  <h2 className="mt-16 ml-8 text-2xl font-bold">John Doe</h2>
+                  <h2 className="text-2xl font-bold">Azeez Yahaya</h2>
+                  <h4 className="text-xl">Product-Officer</h4>
+                  <span className="flex justify-around px-20 p-5">
+                    <a href="/">
+                      <MdMarkEmailRead className="text-2xl" />
+                    </a>
+
+                    <a href="/">
+                      <IoLogoWhatsapp className="text-2xl hover:text-green-600" />
+                    </a>
+
+                    <a href="/">
+                      <ImTwitter className="text-2xl hover:text-blue-500" />
+                    </a>
+
+                    <a href="/">
+                      <BsInstagram className="text-2xl hover:text-red-300" />
+                    </a>
+                  </span>
                 </span>
-                <hr />
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Consectetur, repellat obcaecati nam impedit suscipit soluta
-                  corporis esse quasi, perferendis doloribus commodi libero,
-                  fugiat velit quidem reiciendis dolor sequi iste est!
-                </p>
               </div>
             </div>
           </div>
