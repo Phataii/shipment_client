@@ -349,7 +349,7 @@ export default function Landing() {
                     width="60%"
                   />
                   <h2 className="text-2xl font-bold">David Shurtliff</h2>
-                  <h4 className="text-xl">Chief-Executive</h4>
+                  <h4 className="text-xl">Customer Rep.</h4>
                   <span className="flex justify-around px-20 p-5">
                     <a href="/">
                       <MdMarkEmailRead className="text-2xl" />
