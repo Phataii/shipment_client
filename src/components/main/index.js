@@ -348,8 +348,8 @@ export default function Landing() {
                     className="rounded-md ml-20"
                     width="60%"
                   />
-                  <h2 className="text-2xl font-bold">Moh'd Yahaya</h2>
-                  <h4 className="text-xl">Chief-Executive-Officer</h4>
+                  <h2 className="text-2xl font-bold">David Shurtliff</h2>
+                  <h4 className="text-xl">Chief-Executive</h4>
                   <span className="flex justify-around px-20 p-5">
                     <a href="/">
                       <MdMarkEmailRead className="text-2xl" />
@@ -408,8 +408,8 @@ export default function Landing() {
                     className="rounded-md ml-20"
                     width="60%"
                   />
-                  <h2 className="text-2xl font-bold">Azeez Yahaya</h2>
-                  <h4 className="text-xl">Product-Officer</h4>
+                  <h2 className="text-2xl font-bold">Roger Thompson</h2>
+                  <h4 className="text-xl">Product-Manager</h4>
                   <span className="flex justify-around px-20 p-5">
                     <a href="/">
                       <MdMarkEmailRead className="text-2xl" />
