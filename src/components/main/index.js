@@ -343,7 +343,7 @@ export default function Landing() {
               <div className="text-center">
                 <span className="">
                   <img
-                    src={require("../../assets/m1.png").default}
+                    src={require("../../assets/img/m1.png").default}
                     alt="Team"
                     className="rounded-md ml-20"
                     width="60%"
@@ -372,7 +372,7 @@ export default function Landing() {
               <div className="text-center">
                 <span className="">
                   <img
-                    src={require("../../assets/m2.png").default}
+                    src={require("../../assets/img/m2.png").default}
                     alt="Team"
                     className="rounded-md ml-20"
                     width="60%"
