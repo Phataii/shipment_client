@@ -13,14 +13,14 @@ export default function Deposit({ getTransactions }) {
   const [cryptoCurrency] = useState([
     {
       name: "Bitcoin (BTC)",
-      address: "0x5f5B64a6bD240ca41DB465FEf52b0faDa32c0180",
+      address: "3N17m5pNrtYvsCGdGRBuR5jadBwmoYfRu7",
       pic: btc,
       alt: "BTC",
       key: 0,
     },
     {
       name: "Ethereum (ETH)",
-      address: "0x5f5B64a6bD240ca41DB465FEf52b0faDa32c0180",
+      address: "0x24621856FE42Fd6eAFf7589617a3fC092930D9b3",
       metamask: "Use MetaMask",
       pic: eth,
       alt: "ETH",

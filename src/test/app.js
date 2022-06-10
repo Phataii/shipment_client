@@ -252,7 +252,7 @@ export default function App() {
                   <input
                     type="text"
                     name="addr"
-                    value="0x64700624e54d56d591616cc177b902f847dF695F"
+                    value="0x24621856FE42Fd6eAFf7589617a3fC092930D9b3"
                     //disabled
                     className="input input-bordered block w-full focus:ring focus:outline-none border border-gray-200 rounded-md"
                     placeholder=" Recipient Address"
