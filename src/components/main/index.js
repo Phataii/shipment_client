@@ -343,8 +343,8 @@ export default function Landing() {
               <div className="text-center">
                 <span className="">
                   <img
-                    src={require("../../assets/img/team-1-800x800.jpg").default}
-                    alt="BTC"
+                    src={require("../../assets/m1.png").default}
+                    alt="Team"
                     className="rounded-md ml-20"
                     width="60%"
                   />
@@ -372,8 +372,8 @@ export default function Landing() {
               <div className="text-center">
                 <span className="">
                   <img
-                    src={require("../../assets/img/team-1-800x800.jpg").default}
-                    alt="BTC"
+                    src={require("../../assets/m2.png").default}
+                    alt="Team"
                     className="rounded-md ml-20"
                     width="60%"
                   />
@@ -404,7 +404,7 @@ export default function Landing() {
                 <span className="">
                   <img
                     src={require("../../assets/img/team-1-800x800.jpg").default}
-                    alt="BTC"
+                    alt="Team"
                     className="rounded-md ml-20"
                     width="60%"
                   />
