@@ -1,24 +1,21 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
-import App from "./test/app";
+//Delete later
+import Exeat from "./components/pages/exeat";
 
 import Index from "./components/main/index";
 import Dashboard from "./components/main/dashboard";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
-import Transactions from "./components/pages/Transactions.jsx";
+import Parcels from "./components/pages/Parcelss.jsx";
 import History from "./components/pages/history";
 import Faqs from "./components/pages/faqs";
-import TransactionsForm from "./components/pages/withdraw";
-import Messages from "./components/pages/messages";
-import Deposit from "./components/pages/deposit";
-import Chart from "./components/pages/chart";
+import ParcelForm from "./components/pages/parcelForm";
 import Help from "./components/pages/help";
 import AuthContext from "./context/AuthContext";
 import Search from "./components/pages/search";
-import { EditTransaction } from "./components/pages/editTransaction";
-import Navbar from "./components/layout/Navbar";
+import { Update } from "./components/pages/updateParcel";
+import DashNav from "./components/layout/DashNav";
 
 function Router() {
   const { loggedIn } = useContext(AuthContext);
@@ -29,10 +26,8 @@ function Router() {
           <Index />
         </Route>
         <Route path="/search">
+          <DashNav />
           <Search />
-        </Route>
-        <Route exact path="/chart">
-          <Chart />
         </Route>
         <Route exact path="/faqs">
           <Faqs />
@@ -49,35 +44,32 @@ function Router() {
         )}
         {loggedIn && (
           <>
-            <Route exact path="/transaction">
-              <Navbar />
-              <Transactions />
+            <Route path="/exeat">
+              <Exeat />
             </Route>
-            <Route path="/etherpay">
-              <App />
+            {/* This is for admin to view all parcels */}
+            <Route exact path="/parcel">
+              <DashNav />
+              <Parcels />
+            </Route>
+            {/* This route is for the admin to add it */}
+            <Route exact path="/addParcel">
+              <DashNav />
+              <ParcelForm />
             </Route>
             <Route exact path="/history">
-              <Navbar />
+              <DashNav />
               <History />
             </Route>
-            <Route exact path="/withdraw">
-              <TransactionsForm />
-            </Route>
-            <Route exact path="/deposit">
-              <Deposit />
-            </Route>
-
-            <Route exact path="/transaction/:id/edit">
-              <EditTransaction />
+            <Route exact path="/parcel/:id/edit">
+              <Update />
             </Route>
             <Route exact path="/dashboard">
-              <Dashboard />
+              <DashNav />
+              <History />
             </Route>
             <Route exact path="/help">
               <Help />
-            </Route>
-            <Route exact path="/messages">
-              <Messages />
             </Route>
           </>
         )}

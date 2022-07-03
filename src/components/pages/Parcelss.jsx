@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
-import TransactionsList from "./adminTransactionList";
-// import TransactionsList from "./TransactionsList";
+import Parcels from "./allParcels";
 import Messages from "./messages";
 import Footer from "../layout/Footer";
 import { requestClient } from "../../utils/request-client";
 
-function Transaction() {
-  const [transactions, setTransactions] = useState([]);
+function Parcel() {
+  const [parcels, setParcels] = useState([]);
   const [messages, setMessages] = useState([]);
 
-  async function getTransactions() {
-    const TransactionRes = await requestClient.get("/transaction/");
-    setTransactions(TransactionRes.data);
+  async function getParcels() {
+    const ParcelRes = await requestClient.get("/parcel/");
+    setParcels(ParcelRes.data);
   }
 
   useEffect(() => {
-    getTransactions();
+    getParcels();
   }, []);
 
   async function getMessages() {
@@ -28,12 +27,12 @@ function Transaction() {
   }, []);
   return (
     <div>
-      {/* <TransactionForm getTransactions={getTransactions} /> */}
-      <TransactionsList transactions={transactions} />
+     
+      <Parcels parcels={parcels} />
       <Messages messages={messages}/>
       <Footer />
     </div>
   );
 }
 
-export default Transaction;
+export default Parcel;

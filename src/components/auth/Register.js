@@ -46,7 +46,7 @@ function Register() {
             <h1 className="font-bold text-3xl">Finally!!!</h1>
             <h2 className="text-gray-600 text-2xl">Welcome aboard</h2>
           </div>
-          <form onSubmit={register} className="md:ml-10 ml-5 w-full mt-5">
+          <form onSubmit={register} className="md:ml-10 ml-8 w-full mt-5">
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -94,7 +94,7 @@ function Register() {
           />
         </section>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { FaTwitter } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
 export default function Footer() {
   return (
+    
     <footer className="relative bg-gray-300 pt-8 pb-6">
       <div
         className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
@@ -62,19 +63,12 @@ export default function Footer() {
                   <li>
                     <a
                       className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                      href="#about"
+                      href="/#about"
                     >
                       About Us
                     </a>
                   </li>
-                  <li>
-                    <a
-                      className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                      href="https://blog.creative-tim.com"
-                    >
-                      Blog
-                    </a>
-                  </li>
+  
                   <li>
                     <a
                       className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
@@ -83,14 +77,7 @@ export default function Footer() {
                       FAQs
                     </a>
                   </li>
-                  <li>
-                    <a
-                      className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                      href="/gist"
-                    >
-                      CryptoGist
-                    </a>
-                  </li>
+                 
                 </ul>
               </div>
               <div className="w-full lg:w-4/12 px-4">
@@ -109,7 +96,7 @@ export default function Footer() {
                   <li>
                     <a
                       className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                      href="https://creative-tim.com/privacy"
+                      href="/#privacy"
                     >
                       Privacy Policy
                     </a>
@@ -117,7 +104,7 @@ export default function Footer() {
                   <li>
                     <a
                       className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                      href="https://creative-tim.com/contact-us"
+                      href="/#contact"
                     >
                       Contact Us
                     </a>
@@ -133,7 +120,7 @@ export default function Footer() {
             <div className="text-sm text-gray-600 font-semibold py-1">
               Copyright © {new Date().getFullYear()} | All Rights Reserved |{" "}
               <a href="/" className="text-gray-600 hover:text-gray-900">
-                Prime Investors
+                Everglory Logistics
               </a>
               .
             </div>

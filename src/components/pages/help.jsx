@@ -7,7 +7,7 @@ export default function Help() {
   const [name, setName] = useState("");
   const [email] = useState("");
   const [message, setMessage] = useState("");
-  async function saveTransaction(e) {
+  async function saveParcel(e) {
     e.preventDefault();
 
     try {
@@ -20,7 +20,7 @@ export default function Help() {
         withCredentials: true,
       });
       alert("Message has been sent!");
-      // getTransactions();
+     
     } catch (err) {
       console.error(err);
       alert("Error Sending Message. Try again!");
@@ -142,7 +142,7 @@ export default function Help() {
             </li>
             <li class="text-xl">
               <a
-                href="transaction"
+                href="parcel"
                 class="px-4 flex justify-end border-r-4 border-white"
               >
                 <span className="mt-2">History</span>
@@ -219,58 +219,50 @@ export default function Help() {
           <div className="">
             <h2 className="text-center text-3xl">Socials Platforms</h2>
             <span className="flex justify-around">
-              <img
+              {/* <img
                 src={require("../../images/whatsapp.png").default}
                 alt="img"
                 className="w-16 h-16 mt-10"
-              />
+              /> */}
               <p className="mt-16 md:mr-80">+2348034256988</p>
             </span>
             <span className="flex justify-around">
-              <img
+              {/* <img
                 src={require("../../images/twitter.png").default}
                 alt="img"
                 className="w-16 h-16 mt-10"
-              />
+              /> */}
               <p className="mt-16 md:mr-80"> @primeInvestors</p>
             </span>
             <span className="flex justify-around">
-              <img
+              {/* <img
                 src={require("../../images/insta.png").default}
                 alt="img"
                 className="w-16 h-16 mt-10"
-              />
+              /> */}
               <p className="mt-16 md:mr-80"> @primeinvestors</p>
             </span>
             <span className="flex justify-around">
-              <img
+              {/* <img
                 src={require("../../images/facebook.png").default}
                 alt="img"
                 className="w-16 h-16 mt-10"
-              />
+              /> */}
               <p className="mt-16 md:mr-80"> @primeinvestors</p>
             </span>
             <span className="flex justify-around">
-              <img
+              {/* <img
                 src={require("../../images/mail.png").default}
                 alt="img"
                 className="w-16 h-16 mt-10"
-              />
+              /> */}
               <p className="mt-10 md:mr-80">@mail:PrimeInvestors</p>
             </span>
           </div>
           <div>
             <h2 className="text-3xl">Kindly drop Us a message</h2>
             <div>
-              <form onSubmit={saveTransaction} className="mt-24">
-                {/* <input
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="text"
-                  required
-                  placeholder="Email"
-                  className="border-l-4 text-gray-900 border-blue-600 w-4/5 rounded-md shadow-md p-2 mt-1 mb-3"
-                /> */}
+              <form onSubmit={saveParcel} className="mt-24">
                 <br />
                 <input
                   value={name}

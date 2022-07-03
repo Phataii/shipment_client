@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import LogOutBtn from "../auth/LogOutBtn";
 
-function Navbar() {
+function DashNav() {
   const [nav, setNav] = useState(true);
   const { loggedIn } = useContext(AuthContext);
 
@@ -44,28 +44,23 @@ function Navbar() {
                   <span>Home</span>
                 </a>
               </li>
-              <li class="py-1">
-                <a href="#about" class="px-4 flex text-white">
-                  <span>About</span>
-                </a>
-              </li>
-              <li class="py-1">
-                <a href="#service" class="px-4 flex text-white">
-                  <span>Services</span>
-                </a>
-              </li>
-              <li class="py-1">
-                <a href="#contact" class="px-4 flex text-white">
-                  <span>Contacts</span>
-                </a>
-              </li>
-
+              <Link to="/history">
+                <li class="py-1 px-4 flex text-white">
+                  <span>My Parcels</span>
+                </li>
+              </Link>
+              <Link to="/search">
+                <li class="py-1 px-4 flex text-white">
+                  <span>Search</span>
+                </li>
+              </Link>
               <Link to="/faqs">
                 <li class="py-1 px-4 flex text-white">
                   <span>FAQs</span>
                 </li>
               </Link>
 
+              
               <li className="py-1">
                 {!loggedIn && (
                   <>
@@ -103,4 +98,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default DashNav;

@@ -1,40 +1,47 @@
 import React, { useState } from "react";
+import { requestClient } from "../../utils/request-client";
 import axios from "axios";
 
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
 
-import { BiBitcoin } from "react-icons/bi";
-import { FaEthereum } from "react-icons/fa";
+import { GiTruck } from "react-icons/gi";
+import { GiCommercialAirplane } from "react-icons/gi";
+import { GiCargoShip } from "react-icons/gi";
+import { GiCargoCrate } from "react-icons/gi";
+
+import { MdDeliveryDining } from "react-icons/md";
+
 import { RiTeamFill } from "react-icons/ri";
-import { FaGooglePlay } from "react-icons/fa";
-import { GrAppleAppStore } from "react-icons/gr";
-import { BsBarChartSteps } from "react-icons/bs";
-import { MdMarkEmailRead } from "react-icons/md";
-import { IoLogoWhatsapp } from "react-icons/io";
-import { ImTwitter } from "react-icons/im";
-import { BsInstagram } from "react-icons/bs";
+import "antd/dist/antd.css";
+import { message } from "antd";
 export default function Landing() {
-  const [price, setPrice] = useState("");
-  const getApi = () => {
-    axios
-      .get(
-        "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Ctether&vs_currencies=USD&include_market_cap=false&include_24hr_vol=false&include_24hr_change=false&include_last_updated_at=false",
-        {
-          withCredentials: false,
-        }
-      )
-      .then((res) => {
-        setPrice(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
+  const [name, setName] = useState("");
+  const [email] = useState("");
+  const [messages, setMessage] = useState("");
+  async function saveParcel(e) {
+    e.preventDefault();
+
+    try {
+      const messageData = {
+        name,
+        email,
+        messages,
+      };
+      await requestClient.post("message/", messageData, {
+        withCredentials: true,
       });
-  };
+      message.success("Request has been sent!");
+    } catch (err) {
+      console.error(err);
+      message.success("Error Sending Message. Try again!");
+      
+    }
+  }
   return (
     <>
       <Navbar transparent />
-      <main onLoad={getApi}>
+      <main>
         <div
           className="relative pt-16 pb-32 flex content-center items-center justify-center"
           style={{
@@ -45,7 +52,7 @@ export default function Landing() {
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
               backgroundImage:
-                "url('https://cdn.pixabay.com/photo/2021/09/04/03/00/stock-6596910_960_720.jpg')",
+                "url('https://cdn.pixabay.com/photo/2022/06/24/05/16/transportation-7281034_960_720.jpg')",
             }}
           >
             <span
@@ -58,14 +65,15 @@ export default function Landing() {
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
                   <h1 className="text-white font-semibold text-5xl">
-                    Trade, Swap and Invest Cryptocurrency with ease
+                    Swift Delivery of Goods and Services at it's Peak
                   </h1>
                   <p className="mt-4 text-lg text-gray-300">
-                    Smooth Payout | Safe Trade | Affordable Rate
+                    FAST | RELIABLE | SAFE
                   </p>
-                  <a href="/register">
-                    <button className="text-gray-200 font-bold bg-green-700 text-3xl border-2 p-2 mt-3 hover:bg-transparent hover:text-white duration-700">
-                      START TRADING
+
+                  <a href="/search">
+                    <button className="text-gray-200 font-bold bg-blue-900 text-3xl border-2 p-2 mt-3 hover:bg-transparent hover:text-white duration-700">
+                      TRACK SHIPMENT
                     </button>
                   </a>
                 </div>
@@ -96,62 +104,7 @@ export default function Landing() {
 
         <section className="pb-20 bg-gray-300 -mt-24">
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap">
-              <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                  <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full">
-                      <FaEthereum className="text-gray-500 text-3xl" />
-                    </div>
-                    <h6 className="text-xl font-semibold">ETHEREUM (ETH)</h6>
-                    <p className="mt-2 mb-4 text-gray-600">
-                      Ethereum is a decentralized, open-source blockchain with
-                      smart contract functionality. Ether is the native
-                      cryptocurrency of the platform. Among cryptocurrencies,
-                      Ether is second only to Bitcoin in market capitalization
-                    </p>
-                    {price && <p>Current Price: ${price.ethereum.usd}</p>}
-                  </div>
-                </div>
-              </div>
-
-              <div className="w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                  <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full">
-                      <BiBitcoin className="text-yellow-500 text-3xl" />
-                    </div>
-                    <h6 className="text-xl font-semibold">BITCOIN (BTC)</h6>
-
-                    <p className="mt-2 mb-4 text-gray-600">
-                      Bitcoin is a decentralized digital currency, without a
-                      central bank or single administrator, that can be sent
-                      from user to user on the peer-to-peer bitcoin network
-                      without the need for intermediaries
-                    </p>
-                    {price && <p>Current Price: ${price.bitcoin.usd}</p>}
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-6 w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                  <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full ">
-                      <i className="text-green-500 text-3xl">T</i>
-                    </div>
-                    <h6 className="text-xl font-semibold">TETHER (USDT)</h6>
-                    <p className="mt-2 mb-4 text-gray-600">
-                      Tether is a cryptocurrency that is hosted on the Ethereum
-                      and Bitcoin blockchains, among others. Its tokens are
-                      issued by the Hong Kong company Tether Limited, which in
-                      turn is controlled by the owners of Bitfinex
-                    </p>
-                    {price && <p>Current Price: ${price.tether.usd}</p>}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div className="flex flex-wrap"></div>
 
             <div className="flex flex-wrap items-center mt-32" id="about">
               <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
@@ -159,14 +112,15 @@ export default function Landing() {
                   <RiTeamFill />
                 </div>
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                  Working with us is a pleasure
+                  ABOUT US
                 </h3>
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
-                  PrimeInvestors is a user friendly crypto platform, aimed at
-                  delivering the best crypto services. With active customers in
-                  over 15 countries in the world, including but not limited to
-                  United States, Canada, United Kingdom, Cyprus, Turkey, Russia,
-                  West Africa.
+                  Everglory Logistics is a tested and trusted logistics company
+                  that is dedicated to serving her clients all over the globe.
+                  We are aimed at giving our clients the assurance that their
+                  parcel gets to them safely and timely. We always keep our
+                  clients posted as regards the state and location of their
+                  item. <span className="italic">TRY US TODAY!</span>
                 </p>
 
                 <a href="/register" className="font-bold text-gray-800 mt-8">
@@ -175,10 +129,10 @@ export default function Landing() {
               </div>
 
               <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-pink-600">
+                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-blue-900">
                   <img
                     alt="..."
-                    src="https://cdn.pixabay.com/photo/2020/07/08/04/12/work-5382501_960_720.jpg"
+                    src="https://cdn.pixabay.com/photo/2020/04/02/18/29/truck-4996243_960_720.jpg"
                     className="w-full align-middle rounded-t-lg"
                   />
                   <blockquote className="relative p-8 mb-4">
@@ -194,7 +148,7 @@ export default function Landing() {
                     >
                       <polygon
                         points="-30,95 583,95 583,65"
-                        className="text-pink-600 fill-current"
+                        className="text-blue-900 fill-current"
                       ></polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
@@ -203,7 +157,7 @@ export default function Landing() {
                     <p className="text-md font-light mt-2 text-white">
                       Our users are top priority and as such we have a
                       customers' service team that is always readily available
-                      to answer your questions/complaints
+                      to attend to your questions/complaints.
                     </p>
                   </blockquote>
                 </div>
@@ -211,106 +165,102 @@ export default function Landing() {
             </div>
           </div>
         </section>
-
-        <section className="relative py-20">
-          <div
-            className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
-            style={{ height: "80px" }}
-          >
-            <svg
-              className="absolute bottom-0 overflow-hidden"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-              version="1.1"
-              viewBox="0 0 2560 100"
-              x="0"
-              y="0"
-            >
-              <polygon
-                className="text-white fill-current"
-                points="2560 0 2560 100 0 100"
-              ></polygon>
-            </svg>
-          </div>
-
-          <div className="container mx-auto px-4">
-            <div className="items-center flex flex-wrap">
-              <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
+        <section id="service">
+          <h1 className="text-3xl mt-14 underline font-semibold leading-normal text-center">
+            Our Gallery
+          </h1>
+          <p className="text-center text-2xl mb-3">
+            This is a feel of our transportation media and
+            <br /> safe keeping of good and parcel
+          </p>
+          <div className="grid grid-cols-3">
+            <div>
+              <div className="bg-black">
                 <img
-                  alt="..."
-                  className="max-w-full rounded-lg shadow-lg"
-                  src="https://cdn.pixabay.com/photo/2021/08/24/21/09/idea-6571827_960_720.png"
+                  // src={require("").default}
+                  src="https://cdn.pixabay.com/photo/2015/03/24/09/02/airport-687256_960_720.jpg"
+                  alt="img"
+                  className="hover:opacity-50"
                 />
               </div>
-              <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
-                <div className="md:pr-12">
-                  <div className="text-pink-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-pink-300">
-                    <BsBarChartSteps />
-                  </div>
-                  <h3 className="text-3xl font-semibold">HOW IT WORKS</h3>
-                  <p className="mt-4 text-lg leading-relaxed text-gray-600">
-                    Trading, swapping and investing cryptocurrency can be
-                    simple, easy and secure with Prime Investors.
-                  </p>
-                  <ul className="list-none mt-6">
-                    <li className="py-2">
-                      <div className="flex items-center">
-                        <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                            <i className="fas fa-fingerprint"></i>
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="text-gray-600">
-                            Login or sign up to your trading dashboard
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="py-2">
-                      <div className="flex items-center">
-                        <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                            <i className="fab fa-html5"></i>
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="text-gray-600">
-                            Select digital currency to Trade, Swap Or Invest
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="py-2">
-                      <div className="flex items-center">
-                        <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                            <i className="far fa-paper-plane"></i>
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="text-gray-600">
-                            Recieve payment or crypto-currency
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="py-2">
-                      <div className="flex items-center">
-                        <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                            <i className="far fa-paper-plane"></i>
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="text-gray-600">
-                            Complete trading procedures
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+              <div className="bg-black">
+                <img
+                  src="https://cdn.pixabay.com/photo/2017/09/16/11/11/truck-2755172_960_720.jpg"
+                  alt="img"
+                  className="hover:opacity-50"
+                />
+              </div>
+            </div>
+            <div>
+              <div className="bg-black">
+                <img
+                  src="https://cdn.pixabay.com/photo/2014/08/02/11/40/high-bay-408222_960_720.jpg"
+                  alt="img"
+                  className="hover:opacity-50"
+                />
+              </div>
+              <div className="bg-black">
+                <img
+                  src="https://cdn.pixabay.com/photo/2016/08/30/13/23/efaflex-1630742_960_720.jpg"
+                  alt="img"
+                  className="hover:opacity-50"
+                />
+              </div>
+            </div>
+            <div>
+              <div className="bg-black">
+                <img
+                  src="https://cdn.pixabay.com/photo/2012/02/28/00/39/freight-17666_960_720.jpg"
+                  alt="img"
+                  className="hover:opacity-50"
+                />
+              </div>
+              <div className="bg-black">
+                <img
+                  src="https://cdn.pixabay.com/photo/2014/09/17/18/32/cargo-449784_960_720.jpg"
+                  alt="img"
+                  className="hover:opacity-50"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="relative py-20">
+          <div className="container mx-auto px-4">
+            <div className="items-center md:flex justify-around">
+              <div className="mx-10 text-center">
+                <GiTruck className="bg-blue-900 p-2 rounded-full text-white text-7xl mx-auto" />
+                <h2 className="font-bold text-xl">Roadway Transport</h2>
+                <p>Roadway is one of our major ways of transporting.</p>
+              </div>
+              <div className="mx-10 text-center">
+                <GiCargoCrate className="bg-blue-900 p-2 rounded-full text-white text-7xl mx-auto" />
+                <h2 className="font-bold text-xl">Safe Warehousing</h2>
+                <p>
+                  With our well equiped and secured warehouses, you parcels are
+                  always safe.
+                </p>
+              </div>
+
+              <div className="mx-10 text-center">
+                <MdDeliveryDining className="bg-blue-900 p-2 rounded-full text-white text-7xl mx-auto" />
+                <h2 className="font-bold text-xl">Delivery Unlimited</h2>
+                <p>Your doorstep home delivery is guaranteed with us.</p>
+              </div>
+              <div className="mx-10 text-center">
+                <GiCargoShip className="bg-blue-900 p-2 rounded-full text-white text-7xl mx-auto" />
+                <h2 className="font-bold text-xl">Waterway Transport</h2>
+                <p>
+                  Regardless of the location, water/sea cannot be a barrier.
+                </p>
+              </div>
+              <div className="mx-10 text-center">
+                <GiCommercialAirplane className="bg-blue-900 p-2 rounded-full text-white text-7xl mx-auto" />
+                <h2 className="font-bold text-xl">Airway Transport</h2>
+                <p>
+                  As timeliness is part of our legacy, air transport medium is
+                  not left out
+                </p>
               </div>
             </div>
           </div>
@@ -336,9 +286,10 @@ export default function Landing() {
               ></polygon>
             </svg>
           </div>
-
           <div className="container mx-auto">
-            <h1 className="text-center text-4xl">Meet the team</h1>
+            <h1 className="text-center text-4xl -mt-10 mb-5">
+              The Management Team
+            </h1>
             <div className="items-center grid md:grid-cols-3">
               <div className="text-center">
                 <span className="">
@@ -348,25 +299,9 @@ export default function Landing() {
                     className="rounded-md ml-20"
                     width="60%"
                   />
-                  <h2 className="text-2xl font-bold">David Shurtliff</h2>
-                  <h4 className="text-xl">Customer Rep.</h4>
-                  <span className="flex justify-around px-20 p-5">
-                    <a href="/">
-                      <MdMarkEmailRead className="text-2xl" />
-                    </a>
+                  <h2 className="text-2xl font-bold">Nathan Hoffman</h2>
 
-                    <a href="/">
-                      <IoLogoWhatsapp className="text-2xl hover:text-green-600" />
-                    </a>
-
-                    <a href="/">
-                      <ImTwitter className="text-2xl hover:text-blue-500" />
-                    </a>
-
-                    <a href="/">
-                      <BsInstagram className="text-2xl hover:text-red-300" />
-                    </a>
-                  </span>
+                  <h4 className="text-xl">Chief Technology Officer.</h4>
                 </span>
               </div>
               <div className="text-center">
@@ -377,25 +312,8 @@ export default function Landing() {
                     className="rounded-md ml-20"
                     width="60%"
                   />
-                  <h2 className="text-2xl font-bold">Dominic West</h2>
-                  <h4 className="text-xl">CFO</h4>
-                  <span className="flex justify-around px-20 p-5">
-                    <a href="/">
-                      <MdMarkEmailRead className="text-2xl" />
-                    </a>
-
-                    <a href="/">
-                      <IoLogoWhatsapp className="text-2xl hover:text-green-600" />
-                    </a>
-
-                    <a href="/">
-                      <ImTwitter className="text-2xl hover:text-blue-500" />
-                    </a>
-
-                    <a href="/">
-                      <BsInstagram className="text-2xl hover:text-red-300" />
-                    </a>
-                  </span>
+                  <h2 className="text-2xl font-bold">John Hayden</h2>
+                  <h4 className="text-xl">Managing Director</h4>
                 </span>
 
                 <hr />
@@ -403,37 +321,20 @@ export default function Landing() {
               <div className="text-center">
                 <span className="">
                   <img
-                    src={require("../../assets/img/team-1-800x800.jpg").default}
+                    src={require("../../images/m1.png").default}
                     alt="Team"
                     className="rounded-md ml-20"
                     width="60%"
                   />
-                  <h2 className="text-2xl font-bold">Roger Thompson</h2>
-                  <h4 className="text-xl">Product-Manager</h4>
-                  <span className="flex justify-around px-20 p-5">
-                    <a href="/">
-                      <MdMarkEmailRead className="text-2xl" />
-                    </a>
-
-                    <a href="/">
-                      <IoLogoWhatsapp className="text-2xl hover:text-green-600" />
-                    </a>
-
-                    <a href="/">
-                      <ImTwitter className="text-2xl hover:text-blue-500" />
-                    </a>
-
-                    <a href="/">
-                      <BsInstagram className="text-2xl hover:text-red-300" />
-                    </a>
-                  </span>
+                  <h2 className="text-2xl font-bold">Olivia Nick </h2>
+                  <h4 className="text-xl">Chief Of Operations.</h4>
                 </span>
               </div>
             </div>
           </div>
         </section>
         {/* Mobile */}
-        <section className="pb-20 relative block bg-gray-900">
+        <section className="pb-20 relative block bg-gray-900" id="contact">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
             style={{ height: "80px" }}
@@ -458,7 +359,7 @@ export default function Landing() {
             <div className="flex flex-wrap text-center justify-center">
               <div className="w-full lg:w-6/12 px-4">
                 <h2 className="text-4xl font-semibold text-white">
-                  Coming Soon - PrimeInvestors App
+                  Coming Soon - Everglory App
                 </h2>
                 <p className="text-lg leading-relaxed mt-4 mb-4 text-gray-500">
                   Our Mobile App would be available on Apple and Google play
@@ -468,21 +369,35 @@ export default function Landing() {
               </div>
             </div>
             <div className="flex flex-wrap mt-12 justify-center">
-              <div className="w-full lg:w-3/12 px-4 text-center">
-                <div className="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
-                  <FaGooglePlay className="mt-1" />
+              <div className="w-full lg:w-fit px-4 text-center">
+                <div className="text-gray-900 p-3 w-full h-12 inline-flex items-center justify-center">
+                  <form onSubmit={saveParcel}>
+                    <input
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="p-2 w-full mb-2"
+                      placeholder="Name"
+                    />
+                    {/* <input
+                      value={email}
+                      onChange={(e) => setName(e.target.value)}
+                      className="p-2 w-full mb-2"
+                      placeholder="Email"
+                    /> */}
+                    <textarea
+                      value={messages}
+                      onChange={(e) => setMessage(e.target.value)}
+                      className="p-2 w-full"
+                      placeholder="Message"
+                    />
+                    <input
+                      type="submit"
+                      className="p-2 text-center text-white bg-blue-900 cursor-pointer"
+                      value="Submit"
+                    />
+                  </form>
+                  
                 </div>
-                <h6 className="text-xl mt-5 font-semibold text-white">
-                  Google Play Store
-                </h6>
-              </div>
-              <div className="w-full lg:w-3/12 px-4 text-center">
-                <div className="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
-                  <GrAppleAppStore className="mt-1" />
-                </div>
-                <h5 className="text-xl mt-5 font-semibold text-white">
-                  Apple Store
-                </h5>
               </div>
             </div>
           </div>
@@ -494,9 +409,9 @@ export default function Landing() {
                 <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg">
                   <div className="flex-auto p-5 lg:p-10">
                     <img
-                      src={require("../../images/mobile.png").default}
+                      src={require("../../images/feedback.png").default}
                       alt="BTC"
-                      className="md:-mt-16 w-96 md:ml-14"
+                      className="mt-24 md:mt-2 w-96 md:ml-14"
                     />
                   </div>
                 </div>

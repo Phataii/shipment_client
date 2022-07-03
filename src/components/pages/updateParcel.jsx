@@ -3,37 +3,37 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 import { requestClient } from "../../utils/request-client";
 import Navbar from "../layout/Navbar";
 
-export const EditTransaction = () => {
+export const Update = () => {
   const match = useRouteMatch();
   const history = useHistory();
-  const [transaction, setTransaction] = useState();
+  const [parcel, setParcel] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const transactionId = match.params.id;
+  const _id = match.params.id;
 
   useEffect(() => {
-    async function fetchTransaction() {
+    async function fetchParcel() {
       setIsLoading(true);
-      const res = await requestClient.get(`transaction/${transactionId}`);
+      const res = await requestClient.get(`parcel/${_id}`);
 
-      setTransaction(res.data);
+      setParcel(res.data);
     }
 
-    fetchTransaction()
+    fetchParcel()
       .catch(() => {})
       .finally(() => setIsLoading(false));
-  }, [transactionId]);
+  }, [_id]);
 
   async function onFormSubmit(e) {
     e.preventDefault();
-    console.log(transaction);
+    console.log(parcel);
 
     try {
       const res = await requestClient.put(
-        `/transaction/${transactionId}`,
-        transaction
+        `/parcel/${_id}`,
+        parcel
       );
       console.log(res);
-      history.push("/transaction");
+      history.push("/parcel");
     } catch (err) {
       console.log(err);
     }
@@ -42,7 +42,7 @@ export const EditTransaction = () => {
   const onInputChange = (e) => {
     const { name, value } = e.target;
 
-    setTransaction((old) => ({ ...old, [name]: value }));
+    setParcel((old) => ({ ...old, [name]: value }));
   };
 
   return (
@@ -50,77 +50,78 @@ export const EditTransaction = () => {
       <Navbar/>
       {isLoading ? (
         <p>Loading....</p>
-      ) : transaction ? (
+      ) : parcel ? (
         <form onSubmit={onFormSubmit} className="mt-24 w-full md:ml-80 absolute">
           <h2 className="font-bold text-4xl mb-5">
-            Edit <span className="text-blue-500">Transaction</span>
+            Edit <span className="text-blue-500">Parcel</span>
           </h2>
           <input
             className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
             type="text"
-            name="Email"
+            name="email"
             placeholder="Email"
             onChange={onInputChange}
-            value={transaction.email}
+            value={parcel.email}
           /><br/>
           <input
             className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
             type="text"
-            placeholder="Crypto Currency"
-            name="crypto"
+            placeholder="Item Name"
+            name="item"
             onChange={onInputChange}
-            value={transaction.crypto}
+            value={parcel.item}
           /><br/>
           <input
             className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
             type="text"
-            placeholder="Type"
-            name="type"
+            placeholder="From"
+            name="from"
             onChange={onInputChange}
-            value={transaction.type}
+            value={parcel.from}
           /><br/>
           <input
             className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
             type="text"
-            name="amount"
-            placeholder="Amount"
+            name="to"
+            placeholder="To"
             onChange={onInputChange}
-            value={transaction.amount}
+            value={parcel.to}
+          /><br/>
+           <input
+            className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
+            type="text"
+            placeholder="Location"
+            name="currentLocation"
+            onChange={onInputChange}
+            value={parcel.currentLocation}
           /><br/>   
           <input
             className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
             type="text"
-            placeholder="Wallet Address"
-            name="walletAddress"
+            placeholder="Sender"
+            name="sender"
             onChange={onInputChange}
-            value={transaction.walletAddress}
+            value={parcel.sender}
             disabled
           /><br/>
-          {/* <input
-            className="w-2/5 h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
-            type="text"
-            placeholder="Status"
-            name="status"
-            onChange={onInputChange}
-            value={transaction.status}
-          /> */}
+          
           <select
             className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
             onChange={onInputChange}
-            value={transaction.status}
+            value={parcel.status}
             name="status"
           >
-            <option>Pending</option>
-            <option>Successful</option>
-            <option>Failed</option>
+            <option>Moving</option>
+            <option>Delivered</option>
+            
           </select><br/>
           <input
             className="md:w-2/5 w-full h-10 rounded-md shadow-xl border-2 border-gray-700 p-2 mt-1 mb-3 text-gray-900"
             type="text"
-            placeholder="Transaction ID"
+            placeholder="Parcel ID"
             name="_id"
             onChange={onInputChange}
-            value={transaction._id}
+            value={parcel._id}
             disabled
           /><br/>
 
@@ -128,11 +129,11 @@ export const EditTransaction = () => {
             type="submit"
             className="bg-blue-500 w-fit h-fit rounded-md shadow-xl p-3"
           >
-            Edit Transaction
+            Edit Parcel
           </button>
         </form>
       ) : (
-        <p>Transaction not found</p>
+        <p>Parcel not found</p>
       )}
     </div>
   );
