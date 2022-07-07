@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-//Delete later
-import Exeat from "./components/pages/exeat";
+
 
 import Index from "./components/main/index";
-import Dashboard from "./components/main/dashboard";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Parcels from "./components/pages/Parcelss.jsx";
@@ -44,9 +42,7 @@ function Router() {
         )}
         {loggedIn && (
           <>
-            <Route path="/exeat">
-              <Exeat />
-            </Route>
+           
             {/* This is for admin to view all parcels */}
             <Route exact path="/parcel">
               <DashNav />

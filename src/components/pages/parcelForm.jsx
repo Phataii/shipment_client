@@ -5,7 +5,7 @@ import "antd/dist/antd.css";
 import { message } from "antd";
 
 function ParcelForm({ getParcels }) {
-  const [nav, setNav] = useState(true);
+  //const [nav, setNav] = useState(true);
 
   const { loggedIn } = useContext(AuthContext);
   const [item, setItem] = useState("");

@@ -3,7 +3,6 @@ import { useHistory, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import { requestClient } from "../../utils/request-client";
 import Navbar from "../layout/Navbar";
-import Footer from "../layout/Footer";
 import "antd/dist/antd.css";
 import { message } from "antd";
 
@@ -94,7 +93,7 @@ function Register() {
           />
         </section>
       </div>
-      {/* <Footer /> */}
+     
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { requestClient } from "../../utils/request-client";
-import axios from "axios";
 
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
