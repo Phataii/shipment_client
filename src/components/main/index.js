@@ -295,7 +295,7 @@ export default function Landing() {
                   <img
                     src={require("../../images/m1.png").default}
                     alt="Team"
-                    className="rounded-md ml-20"
+                    className="rounded-md ml-20 h-80"
                     width="60%"
                   />
                   <h2 className="text-2xl font-bold">Nathan Hoffman</h2>
@@ -306,21 +306,7 @@ export default function Landing() {
               <div className="text-center">
                 <span className="">
                   <img
-                    src={require("../../images/m2.jpg").default}
-                    alt="Team"
-                    className="rounded-md ml-20"
-                    width="60%"
-                  />
-                  <h2 className="text-2xl font-bold">John Hayden</h2>
-                  <h4 className="text-xl">Managing Director</h4>
-                </span>
-
-                <hr />
-              </div>
-              <div className="text-center">
-                <span className="">
-                  <img
-                    src={require("../../images/m1.png").default}
+                    src={require("../../images/m3.jpg").default}
                     alt="Team"
                     className="rounded-md ml-20"
                     width="60%"
@@ -329,6 +315,21 @@ export default function Landing() {
                   <h4 className="text-xl">Chief Of Operations.</h4>
                 </span>
               </div>
+              <div className="text-center">
+                <span className="">
+                  <img
+                    src={require("../../images/m2.jpg").default}
+                    alt="Team"
+                    className="rounded-md ml-20 h-80"
+                    width="60%"
+                  />
+                  <h2 className="text-2xl font-bold">John Hayden</h2>
+                  <h4 className="text-xl">Managing Director</h4>
+                </span>
+
+                <hr />
+              </div>
+              
             </div>
           </div>
         </section>
